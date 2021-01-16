@@ -3,7 +3,22 @@ document.addEventListener('DOMContentLoaded',function(){
     var btn_showNav = document.querySelector('.header__nav-icon'),
         nav_menu = document.querySelector('.header__nav-menu'),
         header = document.querySelector('.header');
-    btn_showNav.onclick = function () {
+    
+        // change NAV menu height to zero/auto when resize window (<>1000px) to show/hide nav with the page style
+    function heightAdjust() {
+        var screenWidth = window.innerWidth; //get screen width
+        if (screenWidth >= 1000) {
+            nav_menu.style.height = "auto";
+        } else {
+            nav_menu.style.height = 0;
+        }
+    }
+    // window resize and load event listener
+    window.addEventListener('load', heightAdjust);
+    window.addEventListener('resize',heightAdjust);
+
+    // show/hide nav with button
+    function toggleNav() {
         var menuHeight = nav_menu.offsetHeight;
         if (menuHeight) {
             nav_menu.style.height = 0;
@@ -11,6 +26,9 @@ document.addEventListener('DOMContentLoaded',function(){
             nav_menu.style.height = nav_menu.scrollHeight + "px";
         }
     }
+    btn_showNav.onclick = toggleNav;
+
+    
     window.addEventListener('scroll',function () {
         var pos = window.pageYOffset,
             scrolling = header.classList.contains('scrolldown');

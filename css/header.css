@@ -1,5 +1,9 @@
 @import url(main.css);
 
+/* CONTACT (only show when screen > 1000 px) */
+.contact {
+    display: none;
+}
 
 /* HEADER */
 .header {
@@ -131,3 +135,55 @@
         padding: 1rem 8rem;
     }
 }
+
+@media (min-width:1000px) {
+    /* CONTACT */
+    .contact {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 100;
+        color: var(--cl-text-trans-white);
+        background-color: rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+    /* HEADER */
+    .header {
+        background: transparent;
+        position: absolute;
+        top: 50px;  /*this one*/
+        z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+    }
+    .header.scrolldown {
+        top: 0;   /*top = 0 to overlay the top 50px above*/
+    }
+    /* NAV LOGO */
+    .header__logo {
+ 
+    }
+    /* NAV ICON */
+    .header__nav-icon {
+        display: none;
+    }
+    /* NAV MENU */
+    .header__nav-wrapper {
+        max-width: 750px;
+    }
+    .header__nav-menu {
+        height: auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+        .header__nav-menu > li > a,
+        .header__nav-menu > li > .order {
+            padding: 1rem 2rem;
+        }
+
+}
+
