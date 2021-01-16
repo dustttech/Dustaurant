@@ -65,12 +65,11 @@ img {
 @media (min-width:500px) {
     :root {
         --fs-h1: 5rem;
-        --fs-h2: 3rem;
-        --fs-h3: 2.5rem;
-        --fs-h4: 2rem;
-        --fs-h5: 1.5rem;
-    
-        --fs-logo: 1.8rem;
-        --fs-body: 1rem;
+    }
+}
+@media (min-width:1000px) {
+    :root {
+        --fs-h1: 7rem;
+        --fs-h3: 5rem;
     }
 }

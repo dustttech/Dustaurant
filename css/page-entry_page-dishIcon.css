@@ -167,12 +167,12 @@
         /* padding-bottom: 1rem; */
     }
         .dishIcon__wrapper {
+            margin: 0 auto;
+            max-width: 1600px;
             padding-top: 4rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         .page-dishIcon img {
-            width: 80px;
-            height: 80px;
         }
         .item__text {
             color: var(--cl-text-trans-white);
