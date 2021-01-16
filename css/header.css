@@ -1,0 +1,122 @@
+@import url(main.css);
+
+
+/* HEADER */
+.header {
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: var(--fs-body);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+.header.scrolldown,
+.header.scrollup {
+    position: fixed;
+    z-index: 50;
+}
+.header.scrolldown {
+    animation: scrolldown 0.4s ease-in-out;
+}
+.header.scrollup {
+    top: -200px;
+    animation: scrollup 0.4s ease-in-out;
+}
+@keyframes scrolldown {
+    from {
+        top: -200px;
+    }
+    to {
+        top: 0;
+    }
+}
+@keyframes scrollup {
+    from {
+        top: 0;
+    }
+    to {
+        top: -200px;
+    }
+}
+
+/* NORMAL STYLE */
+.header__logo {
+    font-size: var(--fs-logo);
+}
+
+.header__nav-icon {
+    color: var(--cl-text-trans-white);
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+    .header__nav-icon > i {}
+    .header__nav-icon > span {}
+
+.header__nav-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+    .header__nav-menu {
+        height: 0;
+        -moz-transition: height .5s ease-in-out;
+        -ms-transition: height .5s ease-in-out;
+        -o-transition: height .5s ease-in-out;
+        -webkit-transition: height .5s ease-in-out;
+        transition: height .5s ease-in-out;
+    }
+
+    .header__nav-menu > li {}
+    .header__nav-menu > li > a {
+        display: block;
+        color: var(--cl-text-trans-white);
+        font-size: 1rem;
+        padding: 1rem 0;
+        transition: 0.3s ease-in-out;
+    }
+    .header__nav-menu .active {
+        color: white;
+    }
+
+    .header__nav-menu > li > a:hover {
+        color: white;
+    }
+    .header__nav-menu > li > .order {
+        background-color: var(--cl-btn);
+        border-radius: 5px;
+        padding-left: 1rem;
+        color: white;
+    }
+    .header__nav-menu > li > .order:hover {
+        background-color: var(--cl-btn-hover);
+    }
+
+
+    /* NAV MENU STYLE WHEN SCROLL */
+    .header.scrollstyle {
+        background-color: white;
+        color: black;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+    .scrollstyle .header__nav-icon {
+        color: var(--cl-text-trans-black);
+    }
+    .scrollstyle .header__nav-menu > li > a {
+        color: black;
+    }
+    .scrollstyle .header__nav-menu > li > a:hover {
+        color: var(--cl-btn);
+    }
+    .scrollstyle .header__nav-menu .active {
+        color: var(--cl-btn);
+    }
+    .scrollstyle .header__nav-menu .order {
+        color: white;
+    }
+    .scrollstyle .header__nav-menu .order:hover {
+        color: white;
+    }

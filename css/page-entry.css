@@ -1,0 +1,113 @@
+@import url(main.css);
+
+
+/* PAGE ENTRY */
+.page-entry {
+    width: 100%;
+    height: 90%;
+    position: relative;
+    cursor: pointer;
+}
+/* SLIDE */
+.entry__slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+.entry__slide .slide__item,
+.entry__slide .slide__title {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;left: 0;
+}
+.entry__slide .slide__item {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    visibility: hidden;
+}
+.entry__slide .active {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+}
+.entry__slide .show {
+    animation: slideShow 1s ease;
+}
+.entry__slide .hide {
+    animation: slideHide 1s ease;
+}
+@keyframes slideShow {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}
+@keyframes slideHide {
+    from {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.95);
+    }
+}
+.entry__slide .active > .slide__title {
+    z-index: 2;
+}
+.entry__slide .slide__title {
+    padding: 0 1rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+    .slide__item:nth-child(1) .slide__title,
+    .slide__item:nth-child(2) .slide__title {
+        padding-top: 32vh;
+    }
+    
+    .slide__item:nth-child(3) .slide__title {
+        padding-top: 20vh;
+    }
+.title__logo {
+    color: var(--cl-btn);
+    font-size: 3.5rem;
+}
+.title__small-text {
+    text-transform: uppercase;
+}
+/* BUTTON */
+.entry__controls {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+    top: 45%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease-in-out;
+}
+    .entry__controls i {
+        color: white;
+        font-size: var(--fs-logo);
+    }
+    .page-entry:hover .entry__controls {
+        padding: 0 1rem;
+        opacity: 1;
+        visibility: visible;
+    }

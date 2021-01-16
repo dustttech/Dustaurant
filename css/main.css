@@ -1,0 +1,54 @@
+:root {
+    --ff-title: 'Great Vibes', cursive;
+    --ff-normal: 'Poppins', sans-serif;
+
+    --fw-thin: 200;
+    --fw-normal: 400;
+    --fw-bold: 700;
+
+    --fs-title: 3rem;
+    --fs-logo: 1.8rem;
+    --fs-body: 1rem;
+
+    /* COLOR */
+    --cl-text-trans-white: rgba(255,255,255,0.5);
+    --cl-text-trans-black: rgba(0,0,0,0.5);
+    --cl-btn: #c8a97e;
+    --cl-btn-hover: #9c8361;
+    --cl-section: #fafafa;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body {
+    width: 100%;height: 100%;
+}
+body {
+    font-size: 14px;
+    font-family: var(--ff-normal);
+    line-height: 1.5;
+    font-weight: var(--fw-normal);
+}
+
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+h1 {
+    font-family: var(--ff-title);
+    letter-spacing: 3px;
+}
+
+/* @media (max-width:600px) {
+    :root {
+        --fs-title: 1rem;
+        --fs-body: 1rem;
+    }
+} */
