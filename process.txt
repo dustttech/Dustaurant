@@ -1,0 +1,2 @@
+need add animation when page load for dishIcon , page entry text 
+try to make the running number data when scroll down to view
