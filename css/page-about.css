@@ -1,0 +1,86 @@
+@import url(main.css);
+
+/* ABOUT */
+.page-about {
+    padding-top: 8vh;
+}
+
+/* ABOUT IMAGE */
+.about-image {
+    width: 100%;
+    height: 650px;
+    display: flex;
+}
+    .about-image img {
+        /* width: 50%; */
+        object-fit: cover;
+
+    }
+    .about-image img:nth-child(2) {
+        display: none;
+    }
+
+
+/* ABOUT INFORMATIONS */
+.about-informations {
+    padding: 5vh 0;
+    color: #333333;
+    line-height: 2;
+    font-size: var(--fs-body-big);
+}
+
+/* TITLE */
+    .about-informations__title > h1{
+        font-size: var(--fs-page-title);
+        font-weight: var(--fw-normal);
+        color: var(--cl-btn);
+    }
+    .about-informations__title > h2{
+        margin-top: -110px;
+        padding-bottom: 5vh;
+        font-weight: 600;
+        font-size: var(--fs-h2);
+    }
+    /* SMALL PARAGRAPH */
+    .about-informations__smallText > p:nth-child(2) {
+        padding-top: 3vh;
+        letter-spacing: 2px;
+    }
+    .about-informations__smallText > p:nth-child(2) > span {
+        display: inline-block;
+        padding-left: 10px;
+        color: black;
+        font-weight: var(--fw-bold);
+    }
+    .about-informations__smallText .smallText__phone {
+        font-size: var(--fs-logo);
+        color: var(--cl-btn);
+        font-weight: var(--fw-bold);
+    }
+
+    /* NUMBER OF ARCHIEVE */
+.about-numbers {
+    padding-bottom: 8vh;
+    font-size: var(--fs-body-big);
+    text-align: center;
+
+}
+    /* COUNTER  */
+    .about-numbers__counters-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .counters {
+        padding-bottom: 5vh;
+    }
+    .counters span {
+        display: block;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .counters .counter {
+        font-size: var(--fs-h1);
+        color: var(--cl-btn);
+        font-weight: var(--fw-bold);
+    }

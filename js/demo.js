@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     btn_showNav.onclick = toggleNav;
 
-    
+    // SCROLL ANIMATION
     window.addEventListener('scroll',function () {
         var pos = window.pageYOffset,
             scrolling = header.classList.contains('scrolldown');
@@ -132,6 +132,28 @@ document.addEventListener('DOMContentLoaded',function(){
         manualSlide('previous');
     });
 
+
+    // COUNTER NUMBER ANIMATION
+    const counters = document.querySelectorAll('.counter');
+
+    // for each element in counters array (quite similar with loop)
+    counters.forEach(counter => { //each counter element in DOM
+        //create a function for update counter in website (need to passed a argument count-which is the value after each increment)
+        function updateCount(count) {
+            const target = +counter.getAttribute('data-target');//get max value for each counter (declare in html data-target)
+            var count = count || +counter.innerText;//create a count variable to hold innerText in each counter element(only at the first time the function is called because at that time there's no argument to pass ) or the arguament which is passed to updateCount function at the second time forwards the function get called
+
+            const speed = target / 2000;//the increament speed-the smaller it gets the slower the counter counts because this will get add to in count value each time this function get call , need it to make all the counter finish couting in the same time (big value will get a faster speed count than small value)
+
+            if (count < target) { //keep counting if the count value smaller than the max value (target)
+                counter.innerText = parseInt(count + speed, 10);//update to display new counting in the web , parseInt to convert decimal (10) to integer because speed sometime is decimal
+                setTimeout(updateCount, 4, count + speed); //call updateCount function and passing a argument (count+speed) after 4ms (which is the smallest amount setTimeout can provide) , now you see why the first time this function get call there's no argument 
+            } else {
+                counter.innerText = parseInt(target, 10);//if count > target then set count = target (parseInt for safety)
+            }
+        }
+        updateCount();//call updateCount for the FIRST TIME .
+    });
 
     
 },false)

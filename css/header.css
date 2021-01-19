@@ -28,7 +28,7 @@
 .header.scrolldown,
 .header.scrollup {
     position: fixed;
-    z-index: 50;
+    z-index: 150;
 }
 .header.scrolldown {
     animation: scrolldown 0.4s ease-in-out;
@@ -167,7 +167,7 @@
         background: transparent;
         position: absolute;
         top: 50px;  /*this one*/
-        z-index: 100;
+        z-index: 150;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding: 1rem 2rem;
     }

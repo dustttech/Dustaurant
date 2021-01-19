@@ -13,7 +13,9 @@
     --fs-h5: 1.5rem;
 
     --fs-logo: 1.8rem;
+    --fs-page-title:7rem;
     --fs-body: 1rem;
+    --fs-body-big: 1.2rem;
     --fs-header:1.2rem;
     /* COLOR */
     --cl-text-trans-white: rgba(255,255,255,0.5);
@@ -71,5 +73,17 @@ img {
     :root {
         --fs-h1: 7rem;
         --fs-h3: 5rem;
+    }
+}
+
+@keyframes elementShow {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
     }
 }
