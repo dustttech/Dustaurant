@@ -60,7 +60,7 @@
 
     /* NUMBER OF ARCHIEVE */
 .about-numbers {
-    padding-bottom: 8vh;
+    padding: 8vh 0;
     font-size: var(--fs-body-big);
     text-align: center;
 
@@ -80,7 +80,88 @@
         letter-spacing: 2px;
     }
     .counters .counter {
-        font-size: var(--fs-h1);
+        font-size: var(--fs-h2);
         color: var(--cl-btn);
         font-weight: var(--fw-bold);
     }
+    .counters .counters-text {
+        font-size: var(--fs-body);
+    }
+    .about-numbers__text {
+        color: #666666;
+    }
+
+@media (min-width:600px) {
+    /* ABOUT WRAPPER */
+    .page-about__wrapper {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    /* ABOUT IMAGE */
+    .about-image img {
+        width: 50%;
+    }
+    .about-image img:nth-child(2) {
+        display: inline-block;
+    }
+}
+@media (min-width:900px) {
+    /* ABOUT WRAPPER */
+    .page-about__wrapper {
+        max-width: 1200px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* ABOUT IMAGE */
+    .about-image {
+        width: 60%;
+        padding-right: 30px;
+        justify-content: space-around;
+    }
+        .about-image img {
+            padding: 5px;
+            height: 95%;
+        }
+        .about-image img:nth-child(2) {
+            align-self: flex-end;
+        }
+    /*ABOUT INFORMATIONS  */
+    .about-informations {
+        padding-top: 0;
+        width: 40%;
+    }
+        .about-informations__smallText .smallText__phone {
+            font-size: var(--fs-h2);
+        }
+    /*NUMBER OF ARCHIEVE  */
+    .about-numbers {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+
+    }
+        /* COUNTER  */
+        .about-numbers__counters-wrapper {
+            flex: 9;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            padding-right: 20px;
+        }
+            .counters {
+                width: 50%;
+            }
+
+        /* TEXT */
+        .about-numbers__text {
+            flex: 3;
+        }
+}
+@media (min-width:1000px) {
+        /* COUNTER  */
+            .counters {
+                width: 25%;
+                padding-right: 30px;
+            }
+}

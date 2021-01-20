@@ -69,6 +69,12 @@ img {
         --fs-h1: 5rem;
     }
 }
+@media (min-width:500px) {
+    .row {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
 @media (min-width:1000px) {
     :root {
         --fs-h1: 7rem;
