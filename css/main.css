@@ -73,14 +73,16 @@ img {
 /*PAGE TITLE */
 .about-informations__title > h1,
 .page-services__title > h1,
-.page-specialties__title >h1 {
+.page-specialties__title >h1,
+.page-chefs__title > h1 {
     font-size: var(--fs-page-title);
     font-weight: var(--fw-normal);
     color: var(--cl-btn);
 }
 .about-informations__title > h2,
 .page-services__title > h2,
-.page-specialties__title > h2 {
+.page-specialties__title > h2,
+.page-chefs__title > h2  {
     font-weight: 800;
     font-size: var(--fs-h2);
     color: var(--cl-page-title);
