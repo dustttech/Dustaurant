@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/page-about.css">
     <link rel="stylesheet" href="css/page-services.css">
     <link rel="stylesheet" href="css/page-specialties.css">
+    <link rel="stylesheet" href="css/page-chefs.css">
+    <link rel="stylesheet" href="css/page-reservation.css">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@200;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -191,6 +193,8 @@
             </div>
         </div>
     </section>
+    <!-- END ABOUT SECTION -->
+    <!-- PAGE SERVICES -->
     <section class="page-services row">
         <div class="page-services__title">
             <h1>Services</h1>
@@ -220,6 +224,8 @@
             </div>
         </div>
     </section>
+    <!-- END PAGE SERVIVES -->
+    <!-- PAGE SPECIALTIES -->
     <section class="page-specialties row">
         <div class="page-specialties__title">
             <h1>Specialties</h1>
@@ -307,6 +313,8 @@
             </div>
         </div>
     </section>
+    <!-- END SPECIALTIES -->
+    <!-- PAGE CHEFS -->
     <section class="page-chefs row">
         <div class="page-chefs__wrapper">
             <div class="page-chefs__title">
@@ -315,10 +323,10 @@
             </div>
             <div class="page-chefs__chefs-list">
                 <div class="chefs-list__chef">
-                    <div class="chef__image" style="background-image: url(media/img/chef.jpg);"></div>
+                    <div class="chef__image" style="background-image: url(media/img/chef6.jpg);"></div>
                     <div class="chef__details">
                         <h3 class="details__chef-name">Dustin Phong</h3>
-                        <span class="details__chef-pos">Dustaurant Owner</span>
+                        <span class="details__chef-pos">Head Chef</span>
                         <ul class="details__chef-social">
                             <li>
                                 <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
@@ -336,10 +344,10 @@
                     </div>
                 </div>
                 <div class="chefs-list__chef">
-                    <div class="chef__image" style="background-image: url(media/img/chef.jpg);"></div>
+                    <div class="chef__image" style="background-image: url(media/img/chef2.jpg);"></div>
                     <div class="chef__details">
-                        <h3 class="details__chef-name">Dustin Phong</h3>
-                        <span class="details__chef-pos">Dustaurant Owner</span>
+                        <h3 class="details__chef-name">Jackson Wang</h3>
+                        <span class="details__chef-pos">Head Chef</span>
                         <ul class="details__chef-social">
                             <li>
                                 <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
@@ -357,10 +365,10 @@
                     </div>
                 </div>
                 <div class="chefs-list__chef">
-                    <div class="chef__image" style="background-image: url(media/img/chef.jpg);"></div>
+                    <div class="chef__image" style="background-image: url(media/img/chef4.jpg);"></div>
                     <div class="chef__details">
-                        <h3 class="details__chef-name">Dustin Phong</h3>
-                        <span class="details__chef-pos">Dustaurant Owner</span>
+                        <h3 class="details__chef-name">John Tuan</h3>
+                        <span class="details__chef-pos">Chef</span>
                         <ul class="details__chef-social">
                             <li>
                                 <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
@@ -378,10 +386,10 @@
                     </div>
                 </div>
                 <div class="chefs-list__chef">
-                    <div class="chef__image" style="background-image: url(media/img/chef.jpg);"></div>
+                    <div class="chef__image" style="background-image: url(media/img/chef5.jpg);"></div>
                     <div class="chef__details">
-                        <h3 class="details__chef-name">Dustin Phong</h3>
-                        <span class="details__chef-pos">Dustaurant Owner</span>
+                        <h3 class="details__chef-name">Andre Hall</h3>
+                        <span class="details__chef-pos">Chef</span>
                         <ul class="details__chef-social">
                             <li>
                                 <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
@@ -402,7 +410,49 @@
             </div>
         </div>
     </section>
-    
+    <!-- END PAGE CHEFS -->
+    <!-- PAGE RESERVATION -->
+    <section class="page-reservation" style="background-image: url(media/img/bg_3.jpg);">
+        <div class="page-reservation__wrapper row">
+            <div class="page-reservation__title">
+                <h1>Book a table</h1>
+                <h2>Make Reservation</h2>
+            </div>
+            <form action="" class="page-reservation__form">
+                <div class="page-reservation__form-group">
+                    <label for="name">Name:</label>
+                    <input name="name" type="text" placeholder="Your Name">
+                </div>
+                <div class="page-reservation__form-group">
+                    <label for="email">Email:</label>
+                    <input name="email" type="email" placeholder="Your Email">
+                </div>
+                <div class="page-reservation__form-group">
+                    <label for="phone">Phone:</label>
+                    <input name="phone" type="tel" placeholder="Phone Number">
+                </div>
+                <div class="page-reservation__form-group">
+                    <label for="date">Date:</label>
+                    <input name="date" type="date" placeholder="Date">
+                </div>
+                <div class="page-reservation__form-group">
+                    <label for="time">Time:</label>
+                    <input name="time" type="time" placeholder="Time">
+                </div>
+                <div class="page-reservation__form-group">
+                    <label for="person">Person</label>
+                    <select name="person" id="select-person">
+                        <option value="">Person</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value=">=4">4+</option>
+                    </select>
+                </div>
+                <input value="Make a Reservation" type="submit">
+            </form>
+        </div>
+    </section>
     <section class="page-content">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. At possimus iure consequatur sapiente, aliquam amet cumque quo doloremque reiciendis deleniti et soluta! Necessitatibus, error non excepturi maiores omnis repudiandae alias.
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. At possimus iure consequatur sapiente, aliquam amet cumque quo doloremque reiciendis deleniti et soluta! Necessitatibus, error non excepturi maiores omnis repudiandae alias.

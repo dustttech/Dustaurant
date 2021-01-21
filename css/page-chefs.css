@@ -1,0 +1,88 @@
+@import url(main.css);
+
+/* CHEFS */
+.page-chefs {
+    width: 100%;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    color: var(--cl-text-trans-black);
+    font-size: var(--fs-body-big);
+}
+    /* CHEF TITLE */
+    .page-chefs__title {
+        text-align: center;
+    }
+
+    .page-chefs__title > h2 {
+        margin-top: -80px;
+        padding-bottom: 8vh;
+    }
+
+    /* CHEF WRAPPER  */
+    .page-chefs__chefs-list {
+        margin: 0 auto;
+        max-width: 400px;
+    }
+
+    /* CHEF ITEM */
+    .chefs-list__chef {
+        margin-bottom: 5vh;
+    }
+    /* CHEF IMAGE */
+    .chef__image {
+        width: 100%;
+        height: 500px;
+        background-size: cover;
+        background-position: center top;
+        border-radius: 5px;
+        margin-bottom: 2vh;
+    }
+    /* CHEF DETAILS */
+    .chef__details {
+        line-height: 2;
+    }
+    /* CHEF NAME */
+    .details__chef-name {
+        color: var(--cl-page-title);
+    }
+    /* CHEF SOCIAL LINK */
+    .details__chef-social {
+        display: flex;
+    }
+    .details__chef-social > li > a {
+        color: var(--cl-btn);
+        padding-right: 1rem;
+    }
+@media (min-width:800px) {
+    /* CHEF WRAPPER  */
+    .page-chefs__chefs-list {
+        max-width: 720px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+        /* CHEF ITEM */
+        .chefs-list__chef {
+            width: 48%;
+        }
+    
+}
+@media (min-width:1000px) {
+    /* CHEF WRAPPER  */
+    .page-chefs__chefs-list {
+        max-width: 1200px;
+        height: 720px;
+    }
+        /* CHEF ITEM */
+        .chefs-list__chef {
+            width: 25%;
+        }
+        .chefs-list__chef + .chefs-list__chef {
+            padding-left: 10px;
+        }
+        .chefs-list__chef:nth-child(3), 
+        .chefs-list__chef:nth-child(4) {
+            align-self: flex-end;
+        }
+    
+}
