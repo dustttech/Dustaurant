@@ -30,16 +30,9 @@
 }
 
 /* TITLE */
-    .about-informations__title > h1{
-        font-size: var(--fs-page-title);
-        font-weight: var(--fw-normal);
-        color: var(--cl-btn);
-    }
     .about-informations__title > h2{
         margin-top: -110px;
         padding-bottom: 5vh;
-        font-weight: 600;
-        font-size: var(--fs-h2);
     }
     /* SMALL PARAGRAPH */
     .about-informations__smallText > p:nth-child(2) {
@@ -159,6 +152,9 @@
         }
 }
 @media (min-width:1000px) {
+        .about-informations__title > h2{
+            margin-top: -125px;
+        }
         /* COUNTER  */
             .counters {
                 width: 25%;

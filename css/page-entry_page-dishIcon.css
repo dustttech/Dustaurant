@@ -90,6 +90,7 @@
 .title__logo {
     color: var(--cl-btn);
     font-size: var(--fs-h1);
+    letter-spacing: 5px;
 }
 .title__small-text {
     display: block;
