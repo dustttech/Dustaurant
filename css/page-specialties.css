@@ -65,7 +65,6 @@
                 background-color: var(--cl-btn);
                 border: 1px solid var(--cl-btn);
                 color: white;
-                font-weight: var(--fw-light-bold);
                 padding: 5px 10px;
                 transition: 0.3s ease-in-out;
             }
