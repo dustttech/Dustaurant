@@ -20,13 +20,66 @@
             padding-bottom: 8vh;
         }
     
+
+        /* SLIDE WRAPPER */
+    .page-customers__slide-wrapper {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+    /* SLIDE BUTTON */
+    .page-customers__controls {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .page-customers__controls > li {
+        padding: 5px;
+        cursor: pointer;
+    }
+    .page-customers__controls > li > span{
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        background: rgba(0,0,0,0.2);
+        border-radius: 50%;
+        transition: 0.3s ease-in-out;
+    }
+    .page-customers__controls > li.active > span{
+        background: var(--cl-btn);
+        border: 2px solid black;
+    }
+    .page-customers__controls > li:hover > span{
+        background: var(--cl-btn);
+
+    }
     /*SLIDE   */
     .page-customers__slide {
-        width: 500%;
+        width: 1100%;
+        display: flex;
+        transition: 0.4s ease-in-out;
+    }
+    .page-customers__slide.show0 {
+        transform:  translateX(-27%);
+    }
+    .page-customers__slide.show1 {
+        transform:  translateX(-36%);
+    }
+    .page-customers__slide.show2 {
+        transform:  translateX(-45%);
+    }
+    .page-customers__slide.show3 {
+        transform:  translateX(-54%);
+    }
+    .page-customers__slide.show4 {
+        transform:  translateX(-63%);
     }
     /* SLIDE ITEM */
     .page-customers__slide-item {
-        width: 100%;
+        width: 10%;
+
     }
         /* SLIDE IMAGE */
         .slide-item__image {
@@ -73,3 +126,33 @@
             font-weight: var(--fw-extra-normal);
             letter-spacing: 2px;
         }
+
+@media (min-width:400px) {
+    /* CUSTOMER TITLE */ 
+    .page-customers__title > h1 {
+        font-size: var(--fs-page-title);
+    }
+    .page-customers__title > h2 {
+        margin-top: -80px;
+    }
+}
+@media (min-width:500px) {
+    /* SLIDE WRAPPER */
+    .page-customers__slide-wrapper {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+}
+@media (min-width:750px) {
+    /* SLIDE WRAPPER */
+    .page-customers__slide-wrapper {
+        max-width: unset;
+    }
+        /*SLIDE   */
+        .page-customers__slide {
+            max-width: 2000px;
+        }
+        .page-customers__slide-item {
+            max-width: calc( 2000px / 5);
+        }
+}

@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded',function(){
     prev_btn.addEventListener('click', function () {
         manualSlide('previous');
     });
-    // END SLIDE 
+    // END SLIDE PAGE ENTRY
 
     // COUNTER NUMBER ANIMATION
     const counters = document.querySelectorAll('.counter');
@@ -176,7 +176,24 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     // END COUNTER
 
+    // SLIDE CUSTOMER LIST
+    var customerList = document.querySelector('.page-customers__slide'),
+        customerListBtn = document.querySelectorAll('.page-customers__controls li');
+    
+    for (let i = 0; i < customerListBtn.length; i++) {
+        customerListBtn[i].addEventListener('click',function () {
+            for (let j = 0; j < customerListBtn.length; j++) {
+                customerListBtn[j].classList.remove('active');
+            }
 
+            this.classList.add('active');
+            var classDelete = customerList.classList[1];
+            if (classDelete) {
+                customerList.classList.remove(classDelete);
+            }
+            customerList.classList.add('show' + i);
 
+        })
+    }
     
 },false)
