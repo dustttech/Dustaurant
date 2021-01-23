@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/page-specialties.css">
     <link rel="stylesheet" href="css/page-chefs.css">
     <link rel="stylesheet" href="css/page-reservation.css">
+    <link rel="stylesheet" href="css/page-customer.css">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@200;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,13 +33,13 @@
                 <i class="fas fa-phone-alt"></i>
                 + 1234 4567 89
             </span>
-            <span class="contact__email">
-                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                youremail@email.com
-            </span>
             <span class="contact__physical">
                 <i class="fas fa-clock    "></i>
                 Open hours: Monday - Sunday / 8:00AM - 9:00PM
+            </span>
+            <span class="contact__email">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                youremail@email.com
             </span>
         </div>
     </div>
@@ -420,24 +421,24 @@
             </div>
             <form action="" class="page-reservation__form">
                 <div class="page-reservation__form-group">
-                    <label for="name">Name:</label>
+                    <label for="name">Name</label>
                     <input name="name" type="text" placeholder="Your Name">
                 </div>
                 <div class="page-reservation__form-group">
-                    <label for="email">Email:</label>
+                    <label for="email">Email</label>
                     <input name="email" type="email" placeholder="Your Email">
                 </div>
                 <div class="page-reservation__form-group">
-                    <label for="phone">Phone:</label>
+                    <label for="phone">Phone</label>
                     <input name="phone" type="tel" placeholder="Phone Number">
                 </div>
                 <div class="page-reservation__form-group">
-                    <label for="date">Date:</label>
+                    <label for="date">Date</label>
                     <input name="date" type="date" placeholder="Date">
                 </div>
                 <div class="page-reservation__form-group">
-                    <label for="time">Time:</label>
-                    <input name="time" type="time" placeholder="Time">
+                    <label for="time">Time <span>(8:00 AM - 9:00 PM) </span></label>
+                    <input name="time" type="time" placeholder="Time"  min="08:00" max="21:00" value="08:00">
                 </div>
                 <div class="page-reservation__form-group">
                     <label for="person">Person</label>
@@ -453,6 +454,74 @@
                     <input value="Make a Reservation" type="submit">
                 </div>
             </form>
+        </div>
+    </section>
+    <!-- END RESERVATION -->
+    <section class="page-customers row">
+        <div class="page-customers__title">
+            <h1>Testimony</h1>
+            <h2>Happy Customer</h2>
+        </div>
+        <div class="page-customers__slide-wrapper">
+            <div class="page-customers__slide">
+                <div class="page-customers__slide-item active">
+                    <div class="slide-item__image" style="background-image: url(media/img/customer.jpg);"></div>
+                    <div class="slide-item__text">
+                        <p class="slide-item__compliment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae corrupti, minus repudiandae voluptatem similique rerum excepturi aspernatur quam quidem. Odit consectetur eos inventore ex ullam rerum, dolores repudiandae at incidunt!
+                        </p>
+                        <span class="slide-item__customer-name">Andrew Jackson</span>
+                        <span class="slide-item__position">CUSTOMER</span>                   
+                    </div>
+                </div>
+                <div class="page-customers__slide-item">
+                    <div class="slide-item__image" style="background-image: url(media/img/customer1.jpg);"></div>
+                    <div class="slide-item__text">
+                        <p class="slide-item__compliment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae corrupti, minus repudiandae voluptatem similique rerum excepturi aspernatur quam quidem. Odit consectetur eos inventore ex ullam rerum, dolores repudiandae at incidunt!
+                        </p>
+                        <span class="slide-item__customer-name">Andrew Jackson</span>
+                        <span class="slide-item__position">CUSTOMER</span>                   
+                    </div>
+                </div>
+                <div class="page-customers__slide-item">
+                    <div class="slide-item__image" style="background-image: url(media/img/customer2.jpg);"></div>
+                    <div class="slide-item__text">
+                        <p class="slide-item__compliment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae corrupti, minus repudiandae voluptatem similique rerum excepturi aspernatur quam quidem. Odit consectetur eos inventore ex ullam rerum, dolores repudiandae at incidunt!
+                        </p>
+                        <span class="slide-item__customer-name">Andrew Jackson</span>
+                        <span class="slide-item__position">CUSTOMER</span>                   
+                    </div>
+                </div>
+                <div class="page-customers__slide-item">
+                    <div class="slide-item__image" style="background-image: url(media/img/customer3.jpg);"></div>
+                    <div class="slide-item__text">
+                        <p class="slide-item__compliment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae corrupti, minus repudiandae voluptatem similique rerum excepturi aspernatur quam quidem. Odit consectetur eos inventore ex ullam rerum, dolores repudiandae at incidunt!
+                        </p>
+                        <span class="slide-item__customer-name">Andrew Jackson</span>
+                        <span class="slide-item__position">CUSTOMER</span>                   
+                    </div>
+                </div>
+                <div class="page-customers__slide-item">
+                    <div class="slide-item__image" style="background-image: url(media/img/customer4.jpg);"></div>
+                    <div class="slide-item__text">
+                        <p class="slide-item__compliment">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae corrupti, minus repudiandae voluptatem similique rerum excepturi aspernatur quam quidem. Odit consectetur eos inventore ex ullam rerum, dolores repudiandae at incidunt!
+                        </p>
+                        <span class="slide-item__customer-name">Andrew Jackson</span>
+                        <span class="slide-item__position">CUSTOMER</span>                   
+                    </div>
+                </div>
+            </div>
+            <ul class="page-customers__controls">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
     </section>
     <section class="page-content">

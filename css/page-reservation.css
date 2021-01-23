@@ -7,7 +7,6 @@
     height: 1200px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% -500px;
     display: flex;
     align-items: center;
     font-size: var(--fs-body-big);
@@ -69,7 +68,14 @@
         position: absolute;
         right: 10px;top: 50px;
     }
+    /* LABEL FOR DATE INPUT */
+    .page-reservation__form label[for="time"] span {
+        color: var(--cl-text-trans-black);
+        font-weight: var(--fw-normal);
+        font-size: var(--fs-body);
+    }
 
+    /* STYLE FOR FORM INPUT/SELECT */
     .page-reservation__form input:focus,
     .page-reservation__form select:focus {
         border-color: black;
@@ -101,6 +107,9 @@
     }
 }
 @media (min-width:800px) {
+    .page-reservation {
+        height: 900px;
+    }
     /* WRAPPER */
     .page-reservation__wrapper {
         max-width: 400px;

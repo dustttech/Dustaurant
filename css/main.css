@@ -17,6 +17,7 @@
 
     --fs-logo: 1.8rem;
     --fs-page-title:7rem;
+    --fs-body-small: 0.8rem;
     --fs-body: 1rem;
     --fs-body-big: 1.2rem;
     --fs-header:1.2rem;
@@ -26,6 +27,7 @@
     --cl-text-trans-black: rgba(0,0,0,0.5);
     --cl-text-trans-extra-black: rgba(0,0,0,0.8);
     --cl-page-title: #333333;
+    --cl-page-content: #666666;
     --cl-btn: #c8a97e;
     --cl-btn-hover: #9c8361;
     --cl-section: #fafafa;
@@ -75,7 +77,8 @@ img {
 .page-services__title > h1,
 .page-specialties__title >h1,
 .page-chefs__title > h1,
-.page-reservation__title > h1 {
+.page-reservation__title > h1,
+.page-customers__title > h1 {
     font-size: var(--fs-page-title);
     font-weight: var(--fw-normal);
     color: var(--cl-btn);
@@ -84,7 +87,8 @@ img {
 .page-services__title > h2,
 .page-specialties__title > h2,
 .page-chefs__title > h2,
-.page-reservation__title > h2  {
+.page-reservation__title > h2,
+.page-customers__title > h2 {
     font-weight: 800;
     font-size: var(--fs-h2);
     color: var(--cl-page-title);

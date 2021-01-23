@@ -16,7 +16,20 @@ document.addEventListener('DOMContentLoaded',function(){
     // window resize and load event listener
     window.addEventListener('load', heightAdjust);
     window.addEventListener('resize',heightAdjust);
+    // default style for form background
+    window.addEventListener('load', function () {
+        var pos = window.pageYOffset;
+        var form_bg = document.querySelector('.page-reservation');//get section reservation
+        var pos_formBg = form_bg.offsetTop-30;
 
+        // EFFECT FOR FORM BG
+        if (form_bg.style.backgroundPosition) { // if the user've already scroll
+            form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";  
+        } else { // when first load the page 
+            form_bg.style.backgroundPosition = "50% 50%";
+        }
+
+    });
     // show/hide nav with button
     function toggleNav() {
         var menuHeight = nav_menu.offsetHeight;
@@ -28,11 +41,17 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     btn_showNav.onclick = toggleNav;
 
-    // SCROLL ANIMATION
+    // SCROLL ANIMATION (header menu,background reservation)
     window.addEventListener('scroll',function () {
-        var pos = window.pageYOffset,
-            scrolling = header.classList.contains('scrolldown');
-            // console.log(scrolling);
+        var pos = window.pageYOffset;
+        var scrolling = header.classList.contains('scrolldown');
+        
+        var form_bg = document.querySelector('.page-reservation');//get section reservation
+        var pos_formBg = form_bg.offsetTop-30;
+        // EFFECT FOR FORM BG
+        form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
+
+        // HEADER TOGGLE 
         if (pos > 500) {
             header.classList.add('scrollstyle');
             header.classList.add('scrolldown');
@@ -45,8 +64,9 @@ document.addEventListener('DOMContentLoaded',function(){
             header.classList.remove('scrollstyle');
         }
     })
+    // END SCROLL
 
-        // SLIDE PAGE ENTRY
+    // SLIDE PAGE ENTRY
     
     var slide_item = document.querySelectorAll('.slide__item'),
         prev_btn = document.querySelector('.previous'),
@@ -131,7 +151,7 @@ document.addEventListener('DOMContentLoaded',function(){
     prev_btn.addEventListener('click', function () {
         manualSlide('previous');
     });
-
+    // END SLIDE 
 
     // COUNTER NUMBER ANIMATION
     const counters = document.querySelectorAll('.counter');
@@ -154,6 +174,9 @@ document.addEventListener('DOMContentLoaded',function(){
         }
         updateCount();//call updateCount for the FIRST TIME .
     });
+    // END COUNTER
+
+
 
     
 },false)
