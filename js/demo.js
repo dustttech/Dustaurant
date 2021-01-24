@@ -177,23 +177,55 @@ document.addEventListener('DOMContentLoaded',function(){
     // END COUNTER
 
     // SLIDE CUSTOMER LIST
-    var customerList = document.querySelector('.page-customers__slide'),
-        customerListBtn = document.querySelectorAll('.page-customers__controls li');
+    // var customerList = document.querySelector('.page-customers__slide'),
+    //     customerListBtn = document.querySelectorAll('.page-customers__controls li');
     
-    for (let i = 0; i < customerListBtn.length; i++) {
-        customerListBtn[i].addEventListener('click',function () {
-            for (let j = 0; j < customerListBtn.length; j++) {
-                customerListBtn[j].classList.remove('active');
-            }
+    // for (let i = 0; i < customerListBtn.length; i++) {
+    //     customerListBtn[i].addEventListener('click',function () {
+    //         for (let j = 0; j < customerListBtn.length; j++) {
+    //             customerListBtn[j].classList.remove('active');
+    //         }
 
-            this.classList.add('active');
-            var classDelete = customerList.classList[1];
-            if (classDelete) {
-                customerList.classList.remove(classDelete);
-            }
-            customerList.classList.add('show' + i);
+    //         this.classList.add('active');
+    //         var classDelete = customerList.classList[1];
+    //         if (classDelete) {
+    //             customerList.classList.remove(classDelete);
+    //         }
+    //         customerList.classList.add('show' + i);
 
-        })
+    //     })
+    // }
+    // ADD WIDTH FOR SLIDE CUSTOMER 
+    var customerList = document.querySelector('.page-customers__slide');
+    var customerItem = document.querySelectorAll('.page-customers__slide-item');
+    
+
+    function adjustWidth() {
+        var screenW = window.innerWidth;
+        var listWidth = 0;
+        var centerPos = findCenter();
+        
+        for (let i = 0; i < customerItem.length; i++) {
+            var itemWidth = screenW - 40;
+            customerItem[i].style.width = itemWidth + "px";
+            customerItem[i].style.marginRight = "30px";
+            listWidth = listWidth + itemWidth + 30;
+        }
+        var centerList = (itemWidth + 30)*centerPos;
+ 
+        customerList.style.width = listWidth + "px";
+        customerList.style.transform = "translateX(" + -(centerList-15) + "px)";
+
     }
-    
+    function findCenter() {
+        var centerItem = document.querySelector('.page-customers__slide-item.center');
+        for (var pos = 0; centerItem = centerItem.previousElementSibling; pos++) {}
+        return pos;
+    }
+
+    window.addEventListener('load', adjustWidth);
+    window.addEventListener('resize', adjustWidth);
+
+
+
 },false)
