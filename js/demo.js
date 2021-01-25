@@ -201,20 +201,60 @@ document.addEventListener('DOMContentLoaded',function(){
     
 
     function adjustWidth() {
-        var screenW = window.innerWidth;
+        var viewArea = document.querySelector('.page-customers__slide-wrapper'); //list view window
+        var viewWidth = viewArea.offsetWidth; //list view window width
+
+        var screenW = window.innerWidth; //screen/browser width
+
         var listWidth = 0;
+        var itemWidth = 0;
         var centerPos = findCenter();
-        
-        for (let i = 0; i < customerItem.length; i++) {
-            var itemWidth = screenW - 40;
-            customerItem[i].style.width = itemWidth + "px";
-            customerItem[i].style.marginRight = "30px";
-            listWidth = listWidth + itemWidth + 30;
+        var centerList ;
+        if (screenW < 750) {
+            for (let i = 0; i < customerItem.length; i++) {
+                itemWidth = viewWidth;
+                customerItem[i].style.width = itemWidth + "px";
+    
+                customerItem[i].style.marginRight = "30px";
+                listWidth += itemWidth + 30;
+            }
+            centerList = (itemWidth + 30) *centerPos;
+            customerList.style.transform = "translateX(" + -centerList + "px)";
         }
-        var centerList = (itemWidth + 30)*centerPos;
- 
+        else if (screenW >= 750 && screenW < 1000) {
+            for (let i = 0; i < customerItem.length; i++) {
+                itemWidth = viewWidth/2;
+                customerItem[i].style.width = itemWidth + "px";
+    
+                customerItem[i].style.marginRight = "30px";
+                listWidth += itemWidth + 30;
+            }
+            centerList = (itemWidth + 30) * (centerPos - 0.46);
+            customerList.style.transform = "translateX(" + -centerList + "px)";
+        }
+        else if (screenW >= 1000 && screenW < 1200) {
+            for (let i = 0; i < customerItem.length; i++) {
+                itemWidth = 290;
+                customerItem[i].style.width = itemWidth + "px";
+    
+                customerItem[i].style.marginRight = "30px";
+                listWidth += itemWidth + 30;
+            }
+            centerList = (itemWidth + 30) * (centerPos-1);
+            customerList.style.transform = "translateX(" + -centerList + "px)";
+        } else {
+            for (let i = 0; i < customerItem.length; i++) {
+                itemWidth = (viewWidth-60)/3;
+                customerItem[i].style.width = itemWidth + "px";
+    
+                customerItem[i].style.marginRight = "30px";
+                listWidth += itemWidth + 30;
+            }
+            centerList = (itemWidth + 30) * (centerPos-1);
+            customerList.style.transform = "translateX(" + -centerList + "px)";
+        }
+        
         customerList.style.width = listWidth + "px";
-        customerList.style.transform = "translateX(" + -(centerList-15) + "px)";
 
     }
     function findCenter() {
@@ -223,6 +263,12 @@ document.addEventListener('DOMContentLoaded',function(){
         return pos;
     }
 
+    customerList.addEventListener('mousedown', function () {
+       customerList.style.cursor = "grab"; 
+    });
+    customerList.addEventListener('mouseup', function () {
+       customerList.style.cursor = "unset"; 
+    });
     window.addEventListener('load', adjustWidth);
     window.addEventListener('resize', adjustWidth);
 
