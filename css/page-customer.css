@@ -81,6 +81,11 @@
         opacity: 1;
     }
         /* SLIDE IMAGE */
+        .slide-item__image,
+        .slide-item__text span, 
+        .slide-item__text p {
+            user-select: none;
+        }
         .slide-item__image {
             width: 140px;
             height: 140px;
