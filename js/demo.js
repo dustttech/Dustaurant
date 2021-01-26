@@ -176,25 +176,9 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     // END COUNTER
 
-    // SLIDE CUSTOMER LIST
-    // var customerList = document.querySelector('.page-customers__slide'),
-    //     customerListBtn = document.querySelectorAll('.page-customers__controls li');
-    
-    // for (let i = 0; i < customerListBtn.length; i++) {
-    //     customerListBtn[i].addEventListener('click',function () {
-    //         for (let j = 0; j < customerListBtn.length; j++) {
-    //             customerListBtn[j].classList.remove('active');
-    //         }
 
-    //         this.classList.add('active');
-    //         var classDelete = customerList.classList[1];
-    //         if (classDelete) {
-    //             customerList.classList.remove(classDelete);
-    //         }
-    //         customerList.classList.add('show' + i);
 
-    //     })
-    // }
+
     // ADD WIDTH FOR SLIDE CUSTOMER 
     var customerList = document.querySelector('.page-customers__slide');
     var customerItem = document.querySelectorAll('.page-customers__slide-item');
@@ -257,21 +241,91 @@ document.addEventListener('DOMContentLoaded',function(){
         customerList.style.width = listWidth + "px";
 
     }
+
+    // function removeClone(array) {
+    //     var noCLone = [];
+    //     for (let i = 0; i < array.length; i++) {
+    //         if (!array[i].classList.contains('clone')) {
+    //             noCLone.push(array[i]);
+    //         } 
+    //     }
+    //     return noCLone;
+    // }
     function findCenter() {
         var centerItem = document.querySelector('.page-customers__slide-item.center');
         for (var pos = 0; centerItem = centerItem.previousElementSibling; pos++) {}
         return pos;
     }
+    var customer_noClone = document.querySelectorAll('.page-customers__slide-item.real');
 
-    customerList.addEventListener('mousedown', function () {
-       customerList.style.cursor = "grab"; 
-    });
-    customerList.addEventListener('mouseup', function () {
-       customerList.style.cursor = "unset"; 
-    });
+    function moveSlide(array,direction) {
+        var centerPos;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].classList.contains('center')) {
+                centerPos = i;
+            }
+        }
+        if (direction == "right") {
+            var pos = centerPos;
+            var cur_center = array[pos];
+            if (pos < array.length-1) {
+                pos++;
+            }else {pos = 0;}
+            var next_center = array[pos];
+            cur_center.classList.remove('center');
+            next_center.classList.add('center');
+        }
+    }
+
+
     window.addEventListener('load', adjustWidth);
     window.addEventListener('resize', adjustWidth);
 
+    // DRAG SLIDE
+    // customerList.addEventListener("touchstart", startTouch, false);
+    // customerList.addEventListener("touchmove", moveTouch, false);
+    customerList.addEventListener('mousedown', startDrag, false);
+    customerList.addEventListener('mousemove', moveDrag, false);
+    customerList.addEventListener('mouseup', function () {
+        customerList.style.cursor = "unset"; 
+        adjustWidth();
+     });
+    // customerList.addEventListener('mouseup', adjustWidth);
+     // Swipe Up / Down / Left / Right
+    var initialX = null;
+    var initialY = null;
+    var mousePosX = null;
+    var mousePosY = null;
 
-
+     function startDrag(e) {
+        mousePosX = e.clientX;
+        mousePosY = e.clientY;
+       customerList.style.cursor = "grab"; 
+     }
+     function moveDrag(e) {
+        if (mousePosX === null || mousePosY === null) {
+            return;
+        }
+        var currentX = e.clientX;
+        var currentY = e.clientY;
+    
+        var diffX = mousePosX - currentX;
+        var diffY = mousePosY - currentY;
+    
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            // drag horizontally
+            if (diffX > 0) {
+              // swiped left
+              moveSlide(customer_noClone,"right");
+            } else {
+              // swiped right
+              console.log("drag right");
+            }  
+          }
+        
+        mousePosX = null;
+        mousePosY = null;
+       e.preventDefault();
+    
+     }
 },false)
