@@ -183,6 +183,14 @@ document.addEventListener('DOMContentLoaded',function(){
     var customerList = document.querySelector('.page-customers__slide');
     var customerItem = document.querySelectorAll('.page-customers__slide-item');
     
+    function updateDots(center) {
+        var dots = document.querySelectorAll('.page-customers__controls li');
+        var dot_act = document.querySelector('.page-customers__controls li.active');
+        dot_act.classList.remove('active');
+        dots[center].classList.add('active');
+    }
+
+
 
     function adjustWidth() {
         var viewArea = document.querySelector('.page-customers__slide-wrapper'); //list view window
@@ -242,15 +250,8 @@ document.addEventListener('DOMContentLoaded',function(){
 
     }
 
-    // function removeClone(array) {
-    //     var noCLone = [];
-    //     for (let i = 0; i < array.length; i++) {
-    //         if (!array[i].classList.contains('clone')) {
-    //             noCLone.push(array[i]);
-    //         } 
-    //     }
-    //     return noCLone;
-    // }
+
+
     function findCenter() {
         var centerItem = document.querySelector('.page-customers__slide-item.center');
         for (var pos = 0; centerItem = centerItem.previousElementSibling; pos++) {}
@@ -274,6 +275,17 @@ document.addEventListener('DOMContentLoaded',function(){
             var next_center = array[pos];
             cur_center.classList.remove('center');
             next_center.classList.add('center');
+            updateDots(pos);
+        } else if (direction == "left") {
+            var pos = centerPos;
+            var cur_center = array[pos];
+            if (pos > 0) {
+                pos--;
+            }else {pos = array.length - 1;}
+            var next_center = array[pos];
+            cur_center.classList.remove('center');
+            next_center.classList.add('center');
+            updateDots(pos);
         }
     }
 
@@ -282,27 +294,92 @@ document.addEventListener('DOMContentLoaded',function(){
     window.addEventListener('resize', adjustWidth);
 
     // DRAG SLIDE
-    // customerList.addEventListener("touchstart", startTouch, false);
-    // customerList.addEventListener("touchmove", moveTouch, false);
-    customerList.addEventListener('mousedown', startDrag, false);
-    customerList.addEventListener('mousemove', moveDrag, false);
-    customerList.addEventListener('mouseup', function () {
-        customerList.style.cursor = "unset"; 
-        adjustWidth();
-     });
-    // customerList.addEventListener('mouseup', adjustWidth);
+
+    //ONLY ADD TOUCH EVENT LISTENER FOR TOUCH DEVICE/ ELSE USING MOUSE EVENT  
+
+    // if ('ontouchstart' in window) {
+    //     var mousePosX = null;
+    //     var mousePosY = null;
+    //     console.log('touch');
+    //     customerList.addEventListener("touchstart", startTouch, false);
+    //     customerList.addEventListener("touchmove", moveTouch, false);
+    // } else {
+    //     var initialX = null;
+    //     var initialY = null;
+    //     console.log('click');
+    //     customerList.addEventListener('mousedown', startDrag, false);
+    //     customerList.addEventListener('mousemove', moveDrag, false);
+    //     customerList.addEventListener('mouseup', function () {
+    //         customerList.style.cursor = "unset"; 
+    //      });
+    // }
+ 
+
+
+
      // Swipe Up / Down / Left / Right
-    var initialX = null;
-    var initialY = null;
-    var mousePosX = null;
-    var mousePosY = null;
+     var mousePosX = null;
+     var mousePosY = null;
+     var initialX = null;
+     var initialY = null;
+
+    function startTouch(e) {
+
+
+        //touches return read-only Touch object (which has many proteties including clientX/clientY-which is position when touch ) and lenght property-which will add 1 touch object for each touch event , use to count the number of finger using when touch )
+        initialX = e.touches[0].clientX;//touches[0] get only touchList object
+        initialY = e.touches[0].clientY;
+        //X Y is position of touch (only true if user touched)
+      };
+     
+    function moveTouch(e) {
+
+
+        //only run this function if user has already touch
+        if (initialX === null) {
+        return;
+        }
+    
+        if (initialY === null) {
+        return;
+        }
+    
+        //locate the next position of touch (which mean user is swiping)
+        var currentX = e.touches[0].clientX;
+        var currentY = e.touches[0].clientY;
+        //calculate the distance between first touch and second touch(which is swiped position)
+        var diffX = initialX - currentX;
+        var diffY = initialY - currentY;
+    
+        if (Math.abs(diffX) > Math.abs(diffY)) {//if position diffX > diffY -> user is swipe horizontally (diffX change , diffY unchange so diffX is always > than diffY)
+        // sliding horizontally
+        if (diffX > 0) {
+            // swiped left
+            moveSlide(customer_noClone,"right");
+            adjustWidth();
+        } else {
+            // swiped right
+            moveSlide(customer_noClone,"left");
+            adjustWidth();
+        }  
+        }
+            //reset the initial touch position
+        initialX = null;
+        initialY = null;
+        e.preventDefault();
+
+    }
 
      function startDrag(e) {
+ 
+
         mousePosX = e.clientX;
         mousePosY = e.clientY;
        customerList.style.cursor = "grab"; 
      }
      function moveDrag(e) {
+
+
         if (mousePosX === null || mousePosY === null) {
             return;
         }
@@ -315,11 +392,13 @@ document.addEventListener('DOMContentLoaded',function(){
         if (Math.abs(diffX) > Math.abs(diffY)) {
             // drag horizontally
             if (diffX > 0) {
-              // swiped left
+              // drag to left
               moveSlide(customer_noClone,"right");
+              adjustWidth();
             } else {
-              // swiped right
-              console.log("drag right");
+              // drag to right
+              moveSlide(customer_noClone,"left");
+              adjustWidth();
             }  
           }
         
@@ -328,4 +407,13 @@ document.addEventListener('DOMContentLoaded',function(){
        e.preventDefault();
     
      }
+
+
+     customerList.addEventListener("touchstart", startTouch, false);
+     customerList.addEventListener("touchmove", moveTouch, false);
+     customerList.addEventListener('mousedown', startDrag, false);
+     customerList.addEventListener('mousemove', moveDrag, false);
+     customerList.addEventListener('mouseup', function () {
+         customerList.style.cursor = "unset"; 
+      });
 },false)
