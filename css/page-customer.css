@@ -46,9 +46,14 @@
         background: var(--cl-btn);
         border: 2px solid black;
     }
-    .page-customers__controls > li:hover > span{
-        background: var(--cl-btn);
 
+
+    /*!!!!! USE THIS FOR PREVENT CONFLICT BETWEEN HOVER IN DESKTOP AND MOBILE(WHICH WILL APPLY STYLE WHEN CLICKING IN MOBILE , BUT WHICH THIS IT WON'T )  !!!!!!!!!*/
+    /* pointer:fine (mouse/stylus) hover:hover(device which support hover) */
+    @media(hover: hover) and (pointer: fine) {
+        .page-customers__controls > li:hover > span{
+            background: var(--cl-btn);
+        }
     }
     /*SLIDE   */
     .page-customers__slide { 

@@ -182,15 +182,30 @@ document.addEventListener('DOMContentLoaded',function(){
     // ADD WIDTH FOR SLIDE CUSTOMER 
     var customerList = document.querySelector('.page-customers__slide');
     var customerItem = document.querySelectorAll('.page-customers__slide-item');
-    
-    function updateDots(center) {
-        var dots = document.querySelectorAll('.page-customers__controls li');
-        var dot_act = document.querySelector('.page-customers__controls li.active');
+    var dots = document.querySelectorAll('.page-customers__controls li');
+
+    function updateDots(array,center) {
+        var dot_act;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].classList.contains('active')) {
+                dot_act = array[i];
+            }
+        }
         dot_act.classList.remove('active');
         dots[center].classList.add('active');
     }
 
-
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].addEventListener('click', (e) => {
+            for (let j = 0; j < dots.length; j++) {
+                dots[j].classList.remove('active');
+                customer_noClone[j].classList.remove('center');
+            }
+            dots[i].classList.add('active');
+            customer_noClone[i].classList.add('center');
+            adjustWidth();
+        })
+    }
 
     function adjustWidth() {
         var viewArea = document.querySelector('.page-customers__slide-wrapper'); //list view window
@@ -275,7 +290,7 @@ document.addEventListener('DOMContentLoaded',function(){
             var next_center = array[pos];
             cur_center.classList.remove('center');
             next_center.classList.add('center');
-            updateDots(pos);
+            updateDots(dots,pos);
         } else if (direction == "left") {
             var pos = centerPos;
             var cur_center = array[pos];
@@ -285,7 +300,7 @@ document.addEventListener('DOMContentLoaded',function(){
             var next_center = array[pos];
             cur_center.classList.remove('center');
             next_center.classList.add('center');
-            updateDots(pos);
+            updateDots(dots,pos);
         }
     }
 
@@ -367,7 +382,6 @@ document.addEventListener('DOMContentLoaded',function(){
         initialX = null;
         initialY = null;
         e.preventDefault();
-
     }
 
      function startDrag(e) {
