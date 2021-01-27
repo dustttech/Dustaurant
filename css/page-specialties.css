@@ -3,14 +3,13 @@
 /* PAGE SPECIALTIES */
 .page-specialties {
     width: 100%;
-    padding-top: 8vh;
-    padding-bottom: 8vh;
+    padding: 8vh 20px;
     text-align: center;
     font-size: var(--fs-body-big);
     color: var(--cl-text-trans-extra-black);
 }
     /* TITLE */
-    .page-specialties__title > h1 {
+    .page-specialties .page-specialties__title > h1 {
         font-size: 4.5rem;
     }
     .page-specialties__title > h2 {
@@ -42,6 +41,8 @@
             .details__name-price {
                 width: 100%;
                 display: flex;
+                white-space: nowrap;
+                padding-bottom: 20px;
             }
             .details__name,
             .details__price {
@@ -51,6 +52,8 @@
                 width: calc(100% - 80px);
                 color: black;
                 font-weight: var(--fw-light-bold);
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
             .details__price {
                 width: 80px;
@@ -59,6 +62,7 @@
             }
             .details__ingredients {
                 display: block;
+                padding-bottom: 10px;
             }
             .details__order {
                 display: inline-block;
@@ -73,18 +77,17 @@
                 color: var(--cl-btn);
                 border: 1px solid var(--cl-btn);
             }
-@media (min-width:400px) {
+@media (min-width:450px) {
     /* PAGE MENU TITLE */
-    .page-specialties__title > h1 {
+    .page-specialties .page-specialties__title > h1 {
         font-size: var(--fs-page-title);
-
     }
     .page-specialties__title > h2 {
         margin-top: -80px;
     }
         /* DISHES IMAGE */
         .dishes__image {
-            height: 350px;
+            height: 400px;
         }
         /* .dishes__details {
             display: flex;
@@ -94,12 +97,7 @@
         } */
             
 }
-@media (min-width:400px) {
-            .dishes__image {
-                height: 400px;
-            }
-            
-}
+
 @media (min-width:550px) {
     .page-specialties__dishes-wrapper {
         max-width: 500px;
@@ -129,7 +127,7 @@
 }
 @media (min-width:1000px) {
     .page-specialties__dishes-wrapper {
-        max-width: 1100px;
+        max-width: 1200px;
         margin:  0 auto;
         display: flex;
         flex-wrap: wrap;
