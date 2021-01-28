@@ -1,0 +1,143 @@
+@import url(main.css);
+
+/* FOOTER */
+.footer {
+    width: 100%;
+    background: #141313;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    color: var(--cl-text-trans-extra-white);
+    line-height: 2;
+}
+    /* FOOTER SECTION */
+    .footer > section {
+        padding-bottom: 5vh;
+    }
+    /* TITLE */
+    .socials__title,
+    .open-hours__title,
+    .instagram-show__title,
+    .footer__email-title {
+        text-transform: capitalize;
+        font-size: var(--fs-h5);
+        font-weight: var(--fw-light-bold);
+        color: white;
+        padding-bottom: 3vh;
+    }
+    /* SOCIALS LIST */
+    .socials__icon {
+        display: flex;
+        padding-top: 20px;
+    }
+        .socials__icon > li {
+            padding-right: 15px;
+        }
+        .socials__icon > li > a {
+            display: inline-block;
+            width: 40px;height: 40px;
+            color: white;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .socials__icon > li > a > i {
+            font-size: 20px;
+        }
+    /* HOURS LIST */
+    .open-hours__list > li {
+        display: flex;
+    }
+    .open-hours__list > li > span{
+        width: 50%;
+    }
+
+
+    /* INSTAGRAM SHOW */
+    .footer__instagram-show,
+    .instagram-show__row,
+    .instagram-show__column {
+        width: 100%;
+    }
+    footer__instagram-show a {
+        display: block;
+    }
+        .instagram-show__row,
+        .instagram-show__column {
+            display: flex;
+        }
+        .instagram-show__column {
+            height: 300px;
+            flex-direction: column;
+        }
+            .instagram-show__column > .show__item{
+                height: 100px;
+            }
+        .instagram-show__row {
+            height: 100px;
+        }
+            .instagram-show__row > .show__item{
+                width: 33.333333%;
+                height: 100%;
+            }
+            .show__background {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+    
+    /* NEWSLETTER */
+    .footer__email-input {
+        padding-top: 3vh;
+    }
+    #footer__email-input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+
+
+        width: 100%;
+        font-size: var(--fs-body-big);
+        height: 3.5rem;
+        outline: none;
+        border: none;
+        background: url(../media/img/email.png),rgba(255,255,255,0.1);
+        background-size: contain;
+        background-position: 10px;
+        background-repeat: no-repeat;
+        border-radius: 2px;
+        color: var(--cl-text-trans-extra-white);
+        padding: 20px 0 20px 60px;
+        margin-bottom: 20px;
+    }
+    #footer__email-input::placeholder {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7) !important;
+    }
+    #footer__email-submit {
+        width: 100%;
+        text-transform: uppercase;
+        color: white;
+        background-color: var(--cl-btn);
+        outline: none;
+        border: none;
+        border-radius: 2px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        padding: 20px 0;
+    }
+    
+    /* COPY RIGHT */
+    .footer__copy-right {
+        text-align: center;
+        width: 100%;
+        color: white;
+        padding-top: 5vh;
+    }
+    .footer__copy-right a {
+        color: var(--cl-btn);
+        display: block;
+    }

@@ -24,6 +24,7 @@
     --fs-icon: 5rem;
     /* COLOR */
     --cl-text-trans-white: rgba(255,255,255,0.5);
+    --cl-text-trans-extra-white: rgba(255,255,255,0.7);
     --cl-text-trans-light-black: rgba(0,0,0,0.3);
     --cl-text-trans-black: rgba(0,0,0,0.5);
     --cl-text-trans-extra-black: rgba(0,0,0,0.8);
