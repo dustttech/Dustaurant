@@ -11,8 +11,11 @@
     font-size: var(--fs-body-big);
 }
     /* SERVICE TITLE */
+    .page-services__title > h1{
+        font-size: 5.5rem;
+    }
     .page-services__title > h2{
-        margin-top: -80px;
+        margin-top: -60px;
         padding-bottom: 8vh;
 
     }
@@ -34,6 +37,14 @@
                 color: var(--cl-text-trans-black);
             }
 
+@media (min-width:400px) {
+        .page-services__title > h1{
+            font-size: var(--fs-page-title);
+        }
+        .page-services__title > h2{
+            margin-top: -80px;   
+        }
+}
 @media (min-width:500px) {
         /* SERVICES WRAPPER */
         .page-services__wrapper {

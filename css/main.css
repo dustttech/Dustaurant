@@ -24,6 +24,7 @@
     --fs-icon: 5rem;
     /* COLOR */
     --cl-text-trans-white: rgba(255,255,255,0.5);
+    --cl-text-trans-light-black: rgba(0,0,0,0.3);
     --cl-text-trans-black: rgba(0,0,0,0.5);
     --cl-text-trans-extra-black: rgba(0,0,0,0.8);
     --cl-page-title: #333333;
@@ -78,8 +79,8 @@ img {
 .page-specialties__title >h1,
 .page-chefs__title > h1,
 .page-reservation__title > h1,
-.page-customers__title > h1 {
-    font-size: var(--fs-page-title);
+.page-customers__title > h1,
+.page-blog__title > h1 {
     font-weight: var(--fw-normal);
     color: var(--cl-btn);
 }
@@ -88,7 +89,8 @@ img {
 .page-specialties__title > h2,
 .page-chefs__title > h2,
 .page-reservation__title > h2,
-.page-customers__title > h2 {
+.page-customers__title > h2,
+.page-blog__title > h2 {
     font-weight: 800;
     font-size: var(--fs-h2);
     color: var(--cl-page-title);

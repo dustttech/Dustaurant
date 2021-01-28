@@ -30,6 +30,9 @@
 }
 
 /* TITLE */
+    .about-informations__title > h1{
+        font-size: var(--fs-page-title);
+    }
     .about-informations__title > h2{
         margin-top: -110px;
         padding-bottom: 5vh;

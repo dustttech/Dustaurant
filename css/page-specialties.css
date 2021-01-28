@@ -42,7 +42,6 @@
                 width: 100%;
                 display: flex;
                 white-space: nowrap;
-                padding-bottom: 20px;
             }
             .details__name,
             .details__price {
@@ -136,6 +135,10 @@
             width: 50%;
             height: 250px;
         }
-   
        
 }
+@media (min-width:1200px) {
+    .details__name-price {
+        white-space: normal;
+    }
+}   

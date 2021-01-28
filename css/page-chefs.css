@@ -13,6 +13,9 @@
         text-align: center;
     }
 
+    .page-chefs__title > h1 {
+        font-size: var(--fs-page-title);
+    }
     .page-chefs__title > h2 {
         margin-top: -80px;
         padding-bottom: 8vh;
