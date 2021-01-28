@@ -10,7 +10,7 @@
     line-height: 2;
 }
     /* FOOTER SECTION */
-    .footer > section {
+    .footer-wrapper > section {
         padding-bottom: 5vh;
     }
     /* TITLE */
@@ -20,7 +20,7 @@
     .footer__email-title {
         text-transform: capitalize;
         font-size: var(--fs-h5);
-        font-weight: var(--fw-light-bold);
+        font-weight: var(--fw-bold);
         color: white;
         padding-bottom: 3vh;
     }
@@ -41,10 +41,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: 1s ease-in-out;
         }
         .socials__icon > li > a > i {
             font-size: 20px;
         }
+        .socials__icon > li > a:hover {
+            background-color: var(--cl-btn);
+            transition: 0s ease-in-out;
+
+        }
+        .socials__icon > li > a:hover > i {
+            color: black;
+
+        }
+
     /* HOURS LIST */
     .open-hours__list > li {
         display: flex;
@@ -104,13 +115,10 @@
         height: 3.5rem;
         outline: none;
         border: none;
-        background: url(../media/img/email.png),rgba(255,255,255,0.1);
-        background-size: contain;
-        background-position: 10px;
-        background-repeat: no-repeat;
+        text-align: center;
+        background: rgba(255,255,255,0.1);
         border-radius: 2px;
         color: var(--cl-text-trans-extra-white);
-        padding: 20px 0 20px 60px;
         margin-bottom: 20px;
     }
     #footer__email-input::placeholder {
@@ -141,3 +149,40 @@
         color: var(--cl-btn);
         display: block;
     }
+
+@media (min-width:550px) {
+    .footer-wrapper {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+    .instagram-show__column {
+        height: 100px;
+        flex-direction: row;
+    }
+        .instagram-show__column > .show__item{
+            width: 33.333333%;
+        }
+}
+@media (min-width:800px) {
+    .footer-wrapper {
+        max-width: 860px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+        .footer-wrapper > section {
+            width: 48%;
+        }
+        .footer-wrapper > .footer__copy-right {
+            width: 100%;
+        }
+
+}
+@media (min-width:1200px) {
+    .footer-wrapper {
+        max-width: 1200px;
+    }
+        .footer-wrapper > section {
+            width: 20%;
+        }
+}
