@@ -41,30 +41,7 @@ document.addEventListener('DOMContentLoaded',function(){
     }
     btn_showNav.onclick = toggleNav;
 
-    // SCROLL ANIMATION (header menu,background reservation)
-    window.addEventListener('scroll',function () {
-        var pos = window.pageYOffset;
-        var scrolling = header.classList.contains('scrolldown');
-        
-        var form_bg = document.querySelector('.page-reservation');//get section reservation
-        var pos_formBg = form_bg.offsetTop-30;
-        // EFFECT FOR FORM BG
-        form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
 
-        // HEADER TOGGLE 
-        if (pos > 500) {
-            header.classList.add('scrollstyle');
-            header.classList.add('scrolldown');
-            header.classList.remove('scrollup');
-        } else if (pos > 300 && pos < 500 && scrolling) {
-            header.classList.add('scrollup');
-            header.classList.remove('scrolldown');
-        }   else if (pos < 200) {
-            header.classList.remove('scrollup');
-            header.classList.remove('scrollstyle');
-        }
-    })
-    // END SCROLL
 
     // SLIDE PAGE ENTRY
     
@@ -75,9 +52,10 @@ document.addEventListener('DOMContentLoaded',function(){
         wait_animation = false;
 
     // AUTO SLIDE
-    var auto = setInterval(function () {
-        autoSlide();
-    }, 3000);
+    // var auto = setInterval(function () {
+    //     autoSlide();
+    // }, 3000);
+    var auto = setInterval(autoSlide, 3000);
     function autoSlide() {
         var cur_act = slide_item[cur_pos];
         cur_act.classList.remove('active');
@@ -153,8 +131,12 @@ document.addEventListener('DOMContentLoaded',function(){
     });
     // END SLIDE PAGE ENTRY
 
+
     // COUNTER NUMBER ANIMATION
     const counters = document.querySelectorAll('.counter');
+    const countWrapper = document.querySelector('.about-numbers__counters-wrapper');
+
+
 
     // for each element in counters array (quite similar with loop)
     counters.forEach(counter => { //each counter element in DOM
@@ -172,11 +154,54 @@ document.addEventListener('DOMContentLoaded',function(){
                 counter.innerText = parseInt(target, 10);//if count > target then set count = target (parseInt for safety)
             }
         }
-        updateCount();//call updateCount for the FIRST TIME .
+        function check() {
+            if (countWrapper.classList.contains('show')) {
+                updateCount();//call updateCount for the FIRST TIME . 
+                window.removeEventListener('scroll',check,true) // and imediately remove the eventlistentner for scroll below (which has the same true argument)
+                window.removeEventListener('load',check,true)
+            }
+        }
+        window.addEventListener('scroll',check,true) //call check whenever window is scrolling to constantly check for class show to be add in the wrapper (only then can call updateCount) , the "true" argument (syntax is useCapture (absent = false)) is for matching the event listener to remove the right one (see remove event listener above)
+        window.addEventListener('load',check,true) //same with load event
+
+               
     });
     // END COUNTER
 
+    // SCROLL ANIMATION (header menu,background reservation)
+    window.addEventListener('scroll',function () {
+        var pos = window.pageYOffset;
+        var scrolling = header.classList.contains('scrolldown');
+        
+        var form_bg = document.querySelector('.page-reservation');//get section reservation
+        var pos_formBg = form_bg.offsetTop-30;
+        // EFFECT FOR FORM BG
+        form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
+        // HEADER TOGGLE 
+        if (pos > 500) {
+            header.classList.add('scrollstyle');
+            header.classList.add('scrolldown');
+            header.classList.remove('scrollup');
+        } else if (pos > 300 && pos < 500 && scrolling) {
+            header.classList.add('scrollup');
+            header.classList.remove('scrolldown');
+        }   else if (pos < 200) {
+            header.classList.remove('scrollup');
+            header.classList.remove('scrollstyle');
+        }
 
+
+        // SCROLL DOWN ANIAMTION
+        var hideItem = document.querySelectorAll('.hidden');
+        hideItem.forEach(item => {
+            var itemPos = item.offsetTop - 300;
+            if (pos >= itemPos) {
+                item.classList.remove('hidden');
+                item.classList.add('show');
+            }
+        });
+    })
+    // END SCROLL
 
 
     // ADD WIDTH FOR SLIDE CUSTOMER 

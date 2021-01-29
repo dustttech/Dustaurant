@@ -96,6 +96,13 @@ img {
     font-size: var(--fs-h2);
     color: var(--cl-page-title);
 }
+.hidden {
+    opacity: 0!important;
+    visibility: hidden!important;
+}
+.show {
+    animation: elementShow 1s ease-in-out forwards;
+}
 /* [class^="page-"] {
     padding-top: 8vh;
     padding-bottom: 8vh;
