@@ -167,7 +167,6 @@ document.addEventListener('DOMContentLoaded',function(){
         function checkload() {
             counterWrapper.forEach(wrapper => {
                 if (wrapper.classList.contains('show')) {
-                    console.log('omggg');
                     setTimeout(() => {
                     updateCount();//call updateCount for the FIRST TIME .
                     }, 500);
@@ -207,20 +206,20 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
         // SCROLL DOWN ANIAMTION
-        var sleepItem = document.querySelectorAll('.sleep');
-        for (let i = 0; i < sleepItem.length; i++) {
-            var itemPos = sleepItem[i].offsetTop - 800;
-            if (pos >= itemPos) {
-                for (let j = 0; j < sleepItem.length; j++) {
-                    setTimeout(() => {
-                        sleepItem[j].classList.remove('sleep');
-                        sleepItem[j].classList.remove('hidden');
-                        sleepItem[j].classList.add('show');
-                    }, 200);
-                }
+        // var sleepItem = document.querySelectorAll('.sleep');
+        // for (let i = 0; i < sleepItem.length; i++) {
+        //     var itemPos = sleepItem[i].offsetTop - 800;
+        //     if (pos >= itemPos) {
+        //         for (let j = 0; j < sleepItem.length; j++) {
+        //             setTimeout(() => {
+        //                 sleepItem[j].classList.remove('sleep');
+        //                 sleepItem[j].classList.remove('hidden');
+        //                 sleepItem[j].classList.add('show');
+        //             }, j*100);
+        //         }
 
-            }
-        }
+        //     }
+        // }
         // sleepItem.forEach(item => {
         //     var itemPos = item.offsetTop - 800;
         //     if (pos >= itemPos) {
@@ -234,6 +233,45 @@ document.addEventListener('DOMContentLoaded',function(){
         // });
     })
     // END SCROLL
+
+    // TEST 
+    var scroll = window.requestAnimationFrame || function (callback) {
+        setTimeout(callback, 1000/60);
+      }
+      function loop() {
+        var item = document.querySelectorAll('.sleep');
+
+        item.forEach(function (element) {
+          if (isElementInViewport(element)) {
+            element.classList.remove('sleep');
+            element.classList.remove('hidden');
+            element.classList.add('show');
+          } 
+        });
+        scroll(loop);
+      }
+      function isElementInViewport(el) {
+        // special bonus for those using jQuery
+        if (typeof jQuery === "function" && el instanceof jQuery) {
+          el = el[0];
+        }
+        var rect = el.getBoundingClientRect();
+        return (
+          (rect.top <= 0
+            && rect.bottom >= 0)
+          ||
+          (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+          ||
+          (rect.top >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+        );
+      }
+      loop();
+
+
+
+    // END TEST
     // var sleepItem = document.querySelectorAll('.sleep');
     // console.log(sleepItem);
 
