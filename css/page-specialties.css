@@ -17,11 +17,9 @@
         padding-bottom: 8vh;
     }
     /* MENU  */
-    .page-specialties__dishes-wrapper {
-        border: 1px solid rgba(0, 0, 0, 0.1);
-    }
         .page-specialties__dishes {
             width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
         /* DISHES IMAGE */
         .dishes__image {

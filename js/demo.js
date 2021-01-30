@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
     // COUNTER NUMBER ANIMATION
     const counters = document.querySelectorAll('.counter');
-    const countWrapper = document.querySelector('.about-numbers__counters-wrapper');
+    const counterWrapper = document.querySelectorAll('.counters');
 
 
 
@@ -154,19 +154,34 @@ document.addEventListener('DOMContentLoaded',function(){
                 counter.innerText = parseInt(target, 10);//if count > target then set count = target (parseInt for safety)
             }
         }
-        function check() {
-            if (countWrapper.classList.contains('show')) {
-                updateCount();//call updateCount for the FIRST TIME . 
-                window.removeEventListener('scroll',check,true) // and imediately remove the eventlistentner for scroll below (which has the same true argument)
-                window.removeEventListener('load',check,true)
-            }
+        function checkscroll() {
+            counterWrapper.forEach(wrapper => {
+                if (wrapper.classList.contains('show')) {
+                    setTimeout(() => {
+                    updateCount();//call updateCount for the FIRST TIME .
+                    }, 500);
+                    window.removeEventListener('scroll',checkscroll,true); // and imediately remove the eventlistentner for scroll below (which has the same true argument)
+                }
+            });
         }
-        window.addEventListener('scroll',check,true) //call check whenever window is scrolling to constantly check for class show to be add in the wrapper (only then can call updateCount) , the "true" argument (syntax is useCapture (absent = false)) is for matching the event listener to remove the right one (see remove event listener above)
-        window.addEventListener('load',check,true) //same with load event
+        function checkload() {
+            counterWrapper.forEach(wrapper => {
+                if (wrapper.classList.contains('show')) {
+                    console.log('omggg');
+                    setTimeout(() => {
+                    updateCount();//call updateCount for the FIRST TIME .
+                    }, 500);
+                    window.removeEventListener('load',checkload,true);
+                }
+            });
+        }
+        window.addEventListener('scroll',checkscroll,true); //call check whenever window is scrolling to constantly check for class show to be add in the wrapper (only then can call updateCount) , the "true" argument (syntax is useCapture (absent = false)) is for matching the event listener to remove the right one (see remove event listener above)
+        window.addEventListener('load',checkload,true); //same with load event
 
                
     });
     // END COUNTER
+
 
     // SCROLL ANIMATION (header menu,background reservation)
     window.addEventListener('scroll',function () {
@@ -192,16 +207,35 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
         // SCROLL DOWN ANIAMTION
-        var hideItem = document.querySelectorAll('.hidden');
-        hideItem.forEach(item => {
-            var itemPos = item.offsetTop - 300;
+        var sleepItem = document.querySelectorAll('.sleep');
+        for (let i = 0; i < sleepItem.length; i++) {
+            var itemPos = sleepItem[i].offsetTop - 800;
             if (pos >= itemPos) {
-                item.classList.remove('hidden');
-                item.classList.add('show');
+                for (let j = 0; j < sleepItem.length; j++) {
+                    setTimeout(() => {
+                        sleepItem[j].classList.remove('sleep');
+                        sleepItem[j].classList.remove('hidden');
+                        sleepItem[j].classList.add('show');
+                    }, 200);
+                }
+
             }
-        });
+        }
+        // sleepItem.forEach(item => {
+        //     var itemPos = item.offsetTop - 800;
+        //     if (pos >= itemPos) {
+        //         setTimeout(() => {
+        //             item.classList.remove('sleep');
+        //             //need this eventlistener so that  element which has animation delay won't show up first before the animation is running (because their initial state is visible)                    
+        //             item.classList.remove('hidden');
+        //             item.classList.add('show');
+        //         }, 200);
+        //     }
+        // });
     })
     // END SCROLL
+    // var sleepItem = document.querySelectorAll('.sleep');
+    // console.log(sleepItem);
 
 
     // ADD WIDTH FOR SLIDE CUSTOMER 

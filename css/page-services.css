@@ -20,9 +20,9 @@
 
     }
     /* SERVICES WRAPPER */
-      .page-services__service {
+    .page-services__service {
             padding-bottom: 5vh;
-        }
+    }
         .page-services__service > i {
             color: var(--cl-btn);
             font-size: var(--fs-icon);

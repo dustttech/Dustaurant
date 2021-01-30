@@ -97,11 +97,22 @@ img {
     color: var(--cl-page-title);
 }
 .hidden {
-    opacity: 0!important;
-    visibility: hidden!important;
+    opacity: 0;
+    visibility: hidden;
 }
 .show {
     animation: elementShow 1s ease-in-out forwards;
+}
+@keyframes elementShow {
+    from {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 /* [class^="page-"] {
     padding-top: 8vh;
@@ -126,17 +137,7 @@ img {
     }
 }
 
-@keyframes elementShow {
-    from {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        visibility: visible;
-    }
-}
+
 
 
 
