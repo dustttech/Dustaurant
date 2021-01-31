@@ -96,10 +96,6 @@ img {
     font-size: var(--fs-h2);
     color: var(--cl-page-title);
 }
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
 .show {
     animation: elementShow 1s ease-in-out forwards;
 }

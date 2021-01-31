@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const counters = document.querySelectorAll('.counter');
     const counterWrapper = document.querySelectorAll('.counters');
 
-
+    // need using request animation fram with counter
 
     // for each element in counters array (quite similar with loop)
     counters.forEach(counter => { //each counter element in DOM
@@ -234,28 +234,36 @@ document.addEventListener('DOMContentLoaded',function(){
     })
     // END SCROLL
 
-    // TEST 
+    // TEST (SEEM WORKING) no using scroll event on this (because it fire so much event when scroll which can cause browser to overload)
+    //  requestAnimationFrame is a much accurate version of setInterval  . requestAn.... limit how often a funtion is call to either window refresh rate or 60 times per second , the fallback is a call back function after 1000/60 s . Notice that requestAni... only run 1 time , so you need to call it again in the function called
     var scroll = window.requestAnimationFrame || function (callback) {
         setTimeout(callback, 1000/60);
       }
-      function loop() {
+    //   var number = 0;
+
+      function loop(time) {
         var item = document.querySelectorAll('.sleep');
 
-        item.forEach(function (element) {
+        item.forEach(function (element,index) {//for each also return the element (target) and the "index" of the target
+            element.style.opacity = "0";
           if (isElementInViewport(element)) {
-            element.classList.remove('sleep');
-            element.classList.remove('hidden');
-            element.classList.add('show');
+              setTimeout(() => {
+                element.style.opacity = null;
+                element.classList.remove('sleep');
+                element.classList.add('show');
+              }, index*50);
+            //   if (time) {
+            //       let diff = time - number;
+            //       console.log('fram',diff);
+            //       number = time;
+            //   }
           } 
         });
         scroll(loop);
       }
+    //   this function check to see if element is in the viewport (so no need for using window scroll to check element offsetTop)
       function isElementInViewport(el) {
-        // special bonus for those using jQuery
-        if (typeof jQuery === "function" && el instanceof jQuery) {
-          el = el[0];
-        }
-        var rect = el.getBoundingClientRect();
+        var rect = el.getBoundingClientRect();//is the rect around element 
         return (
           (rect.top <= 0
             && rect.bottom >= 0)
@@ -267,7 +275,7 @@ document.addEventListener('DOMContentLoaded',function(){
             rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
         );
       }
-      loop();
+    scroll(loop);
 
 
 

@@ -1,0 +1,20 @@
+using requestAnimationFrame instead of window scroll event listentner
+
+	window scroll event listentner :
+		This might work in some ways,
+ 		but sadly this has a couple of big problems. The first being efficiency. 
+		When scrolling, the event here will fire like crazy. If we’re doing anything like 
+		parsing the DOM tree or other heavy tasks, this will add a lot of overhead to the browser. 
+		It could very easily slow things down and make our animations janky.
+
+		A second issue is iOS. Scrolling on some phones only results in this scroll trigger 
+		being fired after the scrolling has finished. We’d like this to work on mobile, so that’s a big fail there.
+	requestAnimationFrame:
+		Thankfully requestAnimationFrame solves these issues. 
+		It’s a method that we can use to repeatedly check our page to see if elements are 
+		visible, while making sure we don’t overload the browser by checking thousands 
+		of times per second. It does this by limiting how often 
+		the callback is executed to either the screen’s refresh rate or 60 times per second.
+
+		60 times per second might sound like a lot but for the work we’ll be 
+		doing it’s very slow and won’t overload the browser.
