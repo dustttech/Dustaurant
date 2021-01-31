@@ -29,8 +29,46 @@ document.addEventListener('DOMContentLoaded',function(){
 
     // sp const
     const customer_noClone = document.querySelectorAll('.page-customers__slide-item.real');
-    const centerItem = document.querySelector('.page-customers__slide-item.center');
 
+    const viewArea = document.querySelector('.page-customers__slide-wrapper'); //list view window
+
+
+    
+        // SCROLL ANIMATION
+        var scroll = window.requestAnimationFrame || function (callback) {
+            setTimeout(callback, 1000/60);
+          }
+
+          function loop() {
+            var item = document.querySelectorAll('.sleep');
+            item.forEach(function (element,index) {
+                element.style.opacity = "0";
+              if (isElementInViewport(element)) {
+                  setTimeout(() => {
+                    element.style.opacity = null;
+                    element.classList.remove('sleep');
+                    element.classList.add('show');
+                  }, index*50);
+              } 
+            });
+            scroll(loop);
+          }
+          function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();//is the rect around element 
+            return (
+              (rect.top <= 0
+                && rect.bottom >= 0)
+              ||
+              (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+              ||
+              (rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+            );
+          }
+    window.addEventListener('load', function () {
+        scroll(loop);
+    },false)
 
     // NAV MENU
     // window resize and load event listener
@@ -93,33 +131,136 @@ document.addEventListener('DOMContentLoaded',function(){
     // SCROLL ANIMATION (header menu,background reservation)
     //THROTTLING SCROLL
     var scrolling = false;
-    window.addEventListener('scroll', function () {
-        scrolling = true;
-    })
-    setInterval(() => {
-        if (scrolling) {
-            scrolling = false;
-            var pos = window.pageYOffset;
-            var headerCheck = header.classList.contains('scrolldown');
-            if (pos > 500) {
-                header.classList.add('scrollstyle');
-                header.classList.add('scrolldown');
-                header.classList.remove('scrollup');
-            } else if (pos > 300 && pos < 500 && headerCheck) {
-                header.classList.add('scrollup');
-                header.classList.remove('scrolldown');
-            }   else if (pos < 200) {
-                header.classList.remove('scrollup');
-                header.classList.remove('scrollstyle');
-            }
+
+    window.addEventListener('scroll', requestAF, false);
+
+    function requestAF() {
+        if (!scrolling) {
+            requestAnimationFrame(adjustNav);
         }
-    }, 300);
+        scrolling = true;
+    }
+
+    function adjustNav() {
+        var pos = window.pageYOffset;
+        var headerCheck = header.classList.contains('scrolldown');
+        if (pos > 500) {
+            header.classList.add('scrollstyle');
+            header.classList.add('scrolldown');
+            header.classList.remove('scrollup');
+        } else if (pos > 300 && pos < 500 && headerCheck) {
+            header.classList.add('scrollup');
+            header.classList.remove('scrolldown');
+        }   else if (pos < 200) {
+            header.classList.remove('scrollup');
+            header.classList.remove('scrollstyle');
+        }
+        scrolling = false;
+    }
 
     //PAGE RESERVATION
     //adjust page reservation background ???
     var adjustBg = moveBg(form_bg);
     window.addEventListener('load', adjustBg);
+    window.addEventListener('scroll', function () {
+        var pos = window.pageYOffset;
+        var pos_formBg = form_bg.offsetTop-30;
+        // EFFECT FOR FORM BG
+        form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
+    }, false);
 
     //END PAGE RESERVATION
 
+    // PAGE CUSTOMER SLIDE
+    // SLIDE ADJUST
+    var adjustCustomer = adjustWidth(viewArea, customerList, customerItem);
+    window.addEventListener('load', adjustCustomer);
+    window.addEventListener('resize', adjustCustomer);
+    //SLIDE CONTROL
+    //CLICK DOTS
+    dots.forEach(function (dot,index) {
+        
+        dot.addEventListener('click', function () {
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+                customer_noClone[i].classList.remove('center');
+            }
+            dot.classList.add('active');
+            customer_noClone[index].classList.add('center');
+            adjustWidth(viewArea, customerList, customerItem);
+        })
+    });
+
+
+
+    var initialX = null;
+    var initialY = null;
+    function startTouch(e) {
+        initialX = e.touches[0].clientX;
+        initialY = e.touches[0].clientY;
+    };
+    function moveTouch(e) {
+        if (initialX === null || initialY === null){
+        return;
+        }
+        var currentX = e.touches[0].clientX;
+        var currentY = e.touches[0].clientY;
+
+        var diffX = initialX - currentX;
+        var diffY = initialY - currentY;
+    
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+            moveSlide(customer_noClone,"right",dots);
+             adjustWidth(viewArea, customerList, customerItem);
+        } else {
+            moveSlide(customer_noClone,"left",dots);
+             adjustWidth(viewArea, customerList, customerItem);
+        }  
+        }
+        initialX = null;
+        initialY = null;
+        e.preventDefault();
+    }
+    customerList.addEventListener("touchstart", startTouch, false);
+    customerList.addEventListener("touchmove", moveTouch, false);
+
+
+    var mousePosX = null;
+    var mousePosY = null;
+    function startDrag(e) {
+        mousePosX = e.clientX;
+        mousePosY = e.clientY;
+        customerList.style.cursor = "grab"; 
+    }
+    function moveDrag(e) {
+        if (mousePosX === null || mousePosY === null) {
+            return;
+        }
+        var currentX = e.clientX;
+        var currentY = e.clientY;
+    
+        var diffX = mousePosX - currentX;
+        var diffY = mousePosY - currentY;
+    
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 0) {
+                moveSlide(customer_noClone,"right",dots);
+                adjustWidth(viewArea, customerList, customerItem);
+            } else {
+                moveSlide(customer_noClone,"left",dots);
+                adjustWidth(viewArea, customerList, customerItem);
+            }  
+          }
+        
+        mousePosX = null;
+        mousePosY = null;
+       e.preventDefault();  
+    }
+
+    customerList.addEventListener('mousedown', startDrag, false);
+    customerList.addEventListener('mousemove', moveDrag, false);
+    customerList.addEventListener('mouseup', function () {
+        customerList.style.cursor = "unset"; 
+    });
 },false)

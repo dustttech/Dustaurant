@@ -183,6 +183,48 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
     // SCROLL ANIMATION (header menu,background reservation)
+
+    //Improving scrolling performance with passive listeners
+    // let passiveSupported = false;
+
+    // try {
+    // const options = {
+    //     get passive() { // This function will be called when the browser
+    //                     //   attempts to access the passive property.
+    //     passiveSupported = true;
+    //     return false;
+    //     }
+    // };
+
+    // window.addEventListener("test", null, options);
+    // window.removeEventListener("test", null, options);
+    // } catch(err) {
+    // passiveSupported = false;
+    // }
+    // window.addEventListener('scroll',testt,passiveSupported
+    // ? { passive: true } : false);
+
+    // function testt() {
+    //     var pos = window.pageYOffset;
+    //     var scrolling = header.classList.contains('scrolldown');
+    //     console.log('ok');
+    //     // HEADER TOGGLE 
+    //     if (pos > 500) {
+    //         header.classList.add('scrollstyle');
+    //         header.classList.add('scrolldown');
+    //         header.classList.remove('scrollup');
+    //     } else if (pos > 300 && pos < 500 && scrolling) {
+    //         header.classList.add('scrollup');
+    //         header.classList.remove('scrolldown');
+    //     }   else if (pos < 200) {
+    //         header.classList.remove('scrollup');
+    //         header.classList.remove('scrollstyle');
+    //     }
+    // }
+
+
+
+
     window.addEventListener('scroll',function () {
         var pos = window.pageYOffset;
         var scrolling = header.classList.contains('scrolldown');
