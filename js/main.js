@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded',function(){
 
     //PAGE ABOUT
     //COUNTING NUMBER ANIMATION
-    const counterWrapper = document.querySelectorAll('.counters');
     const counters = document.querySelectorAll('.counter');
 
 
@@ -44,6 +43,11 @@ document.addEventListener('DOMContentLoaded',function(){
             item.forEach(function (element,index) {
                 element.style.opacity = "0";
               if (isElementInViewport(element)) {
+
+
+                    // element.style.opacity = null;
+                    // element.classList.remove('sleep');
+                    // element.classList.add('show');
                   setTimeout(() => {
                     element.style.opacity = null;
                     element.classList.remove('sleep');
@@ -66,18 +70,64 @@ document.addEventListener('DOMContentLoaded',function(){
                 rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
             );
           }
-    window.addEventListener('load', function () {
-        scroll(loop);
-    },false)
 
-    // NAV MENU
-    // window resize and load event listener
-    window.addEventListener('load', function () {
-        heightAdjust(nav_menu);
-    });
+
+    // INITIAL SETUP
+    //load
+    window.addEventListener('load' , function () {
+        scroll(loop); //scroll animation
+        heightAdjust(nav_menu); //nav menu
+        adjustWidth(viewArea, customerList, customerItem);//customer Slide adjust
+        moveBg(form_bg);
+    },false);
+
+    //reisze
     window.addEventListener('resize', function () {
         heightAdjust(nav_menu);
+        adjustWidth(viewArea, customerList, customerItem);//customer Slide adjust
     });
+    //scroll
+    window.addEventListener('scroll',function () {
+        requestAF();
+
+    })
+        // SCROLL ANIMATION (header menu,background reservation)
+    //THROTTLING SCROLL
+    var scrolling = false;
+
+    // window.addEventListener('scroll', requestAF, false);
+
+    function requestAF() {
+        if (!scrolling) {
+            requestAnimationFrame(adjustNav);
+            requestAnimationFrame(adjustBg);
+        }
+        scrolling = true;
+    }
+    function adjustBg() {
+        var pos = window.pageYOffset;
+        var pos_formBg = form_bg.offsetTop-30;
+        // EFFECT FOR FORM BG
+        form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
+        scrolling = false;
+
+    }
+    function adjustNav() {
+        var pos = window.pageYOffset;
+        var headerCheck = header.classList.contains('scrolldown');
+        if (pos > 500) {
+            header.classList.add('scrollstyle');
+            header.classList.add('scrolldown');
+            header.classList.remove('scrollup');
+        } else if (pos > 300 && pos < 500 && headerCheck) {
+            header.classList.add('scrollup');
+            header.classList.remove('scrolldown');
+        }   else if (pos < 200) {
+            header.classList.remove('scrollup');
+            header.classList.remove('scrollstyle');
+        }
+        scrolling = false;
+    }
     //TOGGLE NAV MENU
     btn_showNav.onclick = function () {
         toggleMenu(nav_menu);
@@ -111,71 +161,54 @@ document.addEventListener('DOMContentLoaded',function(){
                 counter.innerText = parseInt(target, 10);
             }
         }
-        function checkload() {
-            counterWrapper.forEach(wrapper => {
+        var wrapper = counter.parentNode;
+        function checkScroll() {
                 if (wrapper.classList.contains('show')) {
                     setTimeout(() => {
-                    updateCount();
-                    }, 500);
-                    window.removeEventListener('load',checkload,true);
+                        updateCount();
+                    }, 1000);
+                    window.removeEventListener('scroll',checkScroll,true);
                 }
-            });
         }
-        window.addEventListener('load',checkload,true); 
+        function checkLoad() {
+            setTimeout(() => {
+                
+                if (wrapper.classList.contains('show')) {
+                    setTimeout(() => {
+                        updateCount();
+                    }, 1000);
+                    window.removeEventListener('load',checkLoad,true);
+                }   
+            }, 1000);
+        }
+        window.addEventListener('load',checkLoad,true); 
+        window.addEventListener('scroll',checkScroll,true); 
 
                
     });
     // END COUNTER
 
 
-    // SCROLL ANIMATION (header menu,background reservation)
-    //THROTTLING SCROLL
-    var scrolling = false;
 
-    window.addEventListener('scroll', requestAF, false);
-
-    function requestAF() {
-        if (!scrolling) {
-            requestAnimationFrame(adjustNav);
-        }
-        scrolling = true;
-    }
-
-    function adjustNav() {
-        var pos = window.pageYOffset;
-        var headerCheck = header.classList.contains('scrolldown');
-        if (pos > 500) {
-            header.classList.add('scrollstyle');
-            header.classList.add('scrolldown');
-            header.classList.remove('scrollup');
-        } else if (pos > 300 && pos < 500 && headerCheck) {
-            header.classList.add('scrollup');
-            header.classList.remove('scrolldown');
-        }   else if (pos < 200) {
-            header.classList.remove('scrollup');
-            header.classList.remove('scrollstyle');
-        }
-        scrolling = false;
-    }
 
     //PAGE RESERVATION
     //adjust page reservation background ???
-    var adjustBg = moveBg(form_bg);
-    window.addEventListener('load', adjustBg);
-    window.addEventListener('scroll', function () {
-        var pos = window.pageYOffset;
-        var pos_formBg = form_bg.offsetTop-30;
-        // EFFECT FOR FORM BG
-        form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
-    }, false);
+    // var adjustBg = moveBg(form_bg);
+    // window.addEventListener('load', adjustBg);
+    // window.addEventListener('scroll', function () {
+    //     var pos = window.pageYOffset;
+    //     var pos_formBg = form_bg.offsetTop-30;
+    //     // EFFECT FOR FORM BG
+    //     form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
+    // }, false);
 
     //END PAGE RESERVATION
 
     // PAGE CUSTOMER SLIDE
     // SLIDE ADJUST
-    var adjustCustomer = adjustWidth(viewArea, customerList, customerItem);
-    window.addEventListener('load', adjustCustomer);
-    window.addEventListener('resize', adjustCustomer);
+    // var adjustCustomer = adjustWidth(viewArea, customerList, customerItem);
+    // window.addEventListener('load', adjustCustomer);
+    // window.addEventListener('resize', adjustCustomer);
     //SLIDE CONTROL
     //CLICK DOTS
     dots.forEach(function (dot,index) {

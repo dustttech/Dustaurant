@@ -103,7 +103,7 @@ img {
     from {
         opacity: 0;
         visibility: hidden;
-        transform: translateY(50px);
+        transform: translateY(100px);
     }
     to {
         opacity: 1;

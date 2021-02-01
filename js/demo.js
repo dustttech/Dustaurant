@@ -165,14 +165,14 @@ document.addEventListener('DOMContentLoaded',function(){
             });
         }
         function checkload() {
-            counterWrapper.forEach(wrapper => {
+            setTimeout(() => {
+                var wrapper = counter.parentNode;
                 if (wrapper.classList.contains('show')) {
-                    setTimeout(() => {
-                    updateCount();//call updateCount for the FIRST TIME .
-                    }, 500);
+                    console.log('OMG');
+                    updateCount();
                     window.removeEventListener('load',checkload,true);
-                }
-            });
+                }   
+            }, 1000);
         }
         window.addEventListener('scroll',checkscroll,true); //call check whenever window is scrolling to constantly check for class show to be add in the wrapper (only then can call updateCount) , the "true" argument (syntax is useCapture (absent = false)) is for matching the event listener to remove the right one (see remove event listener above)
         window.addEventListener('load',checkload,true); //same with load event
