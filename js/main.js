@@ -150,17 +150,26 @@ document.addEventListener('DOMContentLoaded',function(){
     //PAGE ABOUT
     //COUNTER ANIMATION
     counters.forEach(counter => {
+        function addCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          }
         function updateCount(count) {
             const target = +counter.getAttribute('data-target');
             var count = count || +counter.innerText;
             const speed = target / 2000;
-            if (count < target) { 
-                counter.innerText = parseInt(count + speed, 10);
+ 
+            if (count < target) {
+                var result =  addCommas(parseInt(count + speed, 10));
+                counter.innerText = result;
                 setTimeout(updateCount, 4, count + speed); 
             } else {
-                counter.innerText = parseInt(target, 10);
+                result = addCommas(target);
+                counter.innerText = result;
             }
         }
+
+
+        
         var wrapper = counter.parentNode;
         function checkScroll() {
                 if (wrapper.classList.contains('show')) {
@@ -187,7 +196,6 @@ document.addEventListener('DOMContentLoaded',function(){
                
     });
     // END COUNTER
-
 
 
 
