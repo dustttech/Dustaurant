@@ -94,6 +94,7 @@
         .slide-item__image {
             width: 140px;
             height: 140px;
+            background-color: var(--cl-btn);
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
