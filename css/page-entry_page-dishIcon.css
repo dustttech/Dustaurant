@@ -137,12 +137,12 @@
     }
     .dishIcon__item {
         text-align: center;
-        visibility: hidden;
-        opacity: 0;
+        /* visibility: hidden;
+        opacity: 0; */
         padding-bottom: 20px;
-        animation: elementShow 1s ease-in-out forwards;
+        /* animation: elementShow 1s ease-in-out forwards; */
     }
-    .dishIcon__item:nth-child(1){
+    /* .dishIcon__item:nth-child(1){
         animation-delay: 0.4s;
     }
     .dishIcon__item:nth-child(2){
@@ -153,7 +153,7 @@
     }
     .dishIcon__item:nth-child(4){
         animation-delay: 1s;
-    }
+    } */
 
     .item__text {
         color: var(--cl-text-trans-black);
