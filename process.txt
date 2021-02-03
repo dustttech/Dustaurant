@@ -1,3 +1,6 @@
 need add animation when page load for dishIcon , page entry text 
 try to make the running number data when scroll down to view (keyword : couter ) 
 stuck with the counter number 
+
+
+finish all above , try to learn regexp
