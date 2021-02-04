@@ -153,18 +153,27 @@ document.addEventListener('DOMContentLoaded',function(){
         function addCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
           }
+
         function updateCount(count) {
-            const target = +counter.getAttribute('data-target');
+            const targetRaw = counter.getAttribute('data-target');
+            const target = +targetRaw.replace(/\D/g, "");
+
             var count = count || +counter.innerText;
+
             const speed = target / 2000;
  
+
             if (count < target) {
                 var result =  addCommas(parseInt(count + speed, 10));
                 counter.innerText = result;
                 setTimeout(updateCount, 4, count + speed); 
             } else {
                 result = addCommas(target);
+                if (targetRaw.match(/\D/g)) {
+                    result = result + "+";
+                }
                 counter.innerText = result;
+
             }
         }
 
