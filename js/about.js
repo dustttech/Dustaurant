@@ -75,17 +75,10 @@ document.addEventListener('DOMContentLoaded',function(){
         heightAdjust(nav_menu); //nav menu
         adjustWidth(viewArea, customerList, customerItem);//customer Slide adjust
         moveBg(form_bg);
-        move2(title_bg);
+        moveBg(title_bg);
+        // move2(title_bg);
     },false);
-    function move2(ele) {
-        var pos = window.pageYOffset;
-        // EFFECT FOR FORM BG
-        if (ele.style.backgroundPosition) { // if the user've already scroll
-            ele.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";  
-        } else { // when first load the page 
-            ele.style.backgroundPosition = "center center";
-        }
-    }
+
     //reisze
     window.addEventListener('resize', function () {
         heightAdjust(nav_menu);
@@ -113,14 +106,13 @@ document.addEventListener('DOMContentLoaded',function(){
         var win_w = window.innerWidth;
         var pos = window.pageYOffset;
         var pos_formBg = form_bg.offsetTop-30;
-        var pos_titleBg = 0;
         // EFFECT FOR FORM BG
         if (win_w < 1000) {
-            pos_titleBg = pos - 65;
+            title_bg.style.backgroundPosition = "50% 0%";
         } else {
-            pos_formBg = pos;
+            title_bg.style.backgroundPosition = "50%" + pos +"px";
         }
-        title_bg.style.backgroundPosition = "50%" + pos_titleBg +"px";
+
         form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
 
         scrolling = false;

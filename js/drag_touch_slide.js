@@ -1,126 +1,6 @@
-        //NAV MENU
-        // change NAV menu height to zero/auto when resize window (<>1000px) to show/hide nav with the page style
-        function heightAdjust(ele) {
-            var screenWidth = window.innerWidth; //get screen width
-            if (screenWidth >= 1000) {
-                ele.style.height = "auto";
-            } else {
-                ele.style.height = 0;
-            }
-        }
-        // show/hide nav with button
-        function toggleMenu(ele) {
-            var menuHeight = ele.offsetHeight;
-            if (menuHeight) {
-                ele.style.height = 0;
-            } else {
-                ele.style.height = ele.scrollHeight + "px";
-            }
-        }
-        // END NAV MENU
-
-
-
-
-        //PAGE ENTRY
-        //SLIDE
-        //AUTO SLIDE
-        function autoSlide(ele) {
-            var cur_pos = 0; 
-
-            function runSlide() {
-                var cur_act = ele[cur_pos];
-                cur_act.classList.remove('active');
-                if (cur_pos < ele.length -1) {
-                    cur_pos++;
-                } else {cur_pos=0;}
-                var next_act = ele[cur_pos];
-                cur_act.classList.add('hide');
-                next_act.classList.add('show');
-                cur_act.addEventListener('webkitAnimationEnd', function () {
-                    cur_act.classList.remove('hide');
-                    cur_act.classList.remove('active');
-                });
-                next_act.addEventListener('webkitAnimationEnd', function () {
-                    next_act.classList.add('active');
-                    next_act.classList.remove('show');
-                });
-            }
-            return runSlide; //CLOSURE , return runSlide with autoSlide enviroment (which has cur_pos var)
-        }
-        // MANUAL SLIDE 
-        function manualSlide(direction,ele,auto) {
-
-            // STOP AUTO SLIDE WHEN USER CLICK
-            var cur_pos = 0, 
-                wait_animation = false;
-            function runSlide() {
-                clearInterval(auto);
-
-                var wait2 = 0;
-                if (wait_animation) {
-                    return false;
-                }
-                wait_animation = true;
-        
-                var cur_act = ele[cur_pos];
-                cur_act.classList.remove('active');
-                if (direction == "next") {
-                    if (cur_pos < ele.length -1) {
-                        cur_pos++;
-                    }   else {cur_pos = 0;}
-                } else {
-                    if (cur_pos > 0) {
-                        cur_pos--;
-                    } else {cur_pos = ele.length -1;}
-                }
-                var next_act = ele[cur_pos];
-                cur_act.classList.add('hide');
-                next_act.classList.add('show');
-        
-                function waitHidden() {
-                    cur_act.classList.remove('hide');
-                    cur_act.classList.remove('active');
-                    wait2 = wait2 + 1;
-                    if (wait2 == 2) {
-                        wait_animation = false;
-                    }
-                }
-                function waitShow() {
-                    next_act.classList.add('active');
-                    next_act.classList.remove('show');
-                    wait2 = wait2 + 1;
-                    if (wait2 == 2) {
-                        wait_animation = false;
-                    }
-                }
-                cur_act.addEventListener('webkitAnimationEnd', waitHidden);
-                next_act.addEventListener('webkitAnimationEnd', waitShow);
-            }
-            return runSlide;
-        }
-
-
-        // END PAGE ENTRY
-
-
-
-        //PAGE RESERVATION 
-        //BACKGROUND
-        function moveBg(ele) {
-            var pos = window.pageYOffset;
-            var pos_formBg = ele.offsetTop-30;
-            // EFFECT FOR FORM BG
-            if (ele.style.backgroundPosition) { // if the user've already scroll
-                ele.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";  
-            } else { // when first load the page 
-                ele.style.backgroundPosition = "50% 0%";
-            }
-        }
-
-
-
-        // PAGE CUSTOMER
+document.addEventListener('DOMContentLoaded',function(){
+    //FUNCTION BLOCK 
+        // slide display
         function updateDots(array,center) {
             var dot_act;
             for (let i = 0; i < array.length; i++) {
@@ -222,4 +102,113 @@
             }
         }
 
+        //control 
+        //drag
+        var mousePosX = null;
+        var mousePosY = null;
+        function startDrag(e) {
+            mousePosX = e.clientX;
+            mousePosY = e.clientY;
+            customerList.style.cursor = "grab"; 
+        }
+        function moveDrag(e) {
+            if (mousePosX === null || mousePosY === null) {
+                return;
+            }
+            var currentX = e.clientX;
+            var currentY = e.clientY;
         
+            var diffX = mousePosX - currentX;
+            var diffY = mousePosY - currentY;
+        
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                if (diffX > 0) {
+                    moveSlide(customer_noClone,"right",dots);
+                    adjustWidth(viewArea, customerList, customerItem);
+                } else {
+                    moveSlide(customer_noClone,"left",dots);
+                    adjustWidth(viewArea, customerList, customerItem);
+                }  
+              }
+            
+            mousePosX = null;
+            mousePosY = null;
+           e.preventDefault();  
+        }
+        //touch
+        var initialX = null;
+        var initialY = null;
+        function startTouch(e) {
+            initialX = e.touches[0].clientX;
+            initialY = e.touches[0].clientY;
+        };
+        function moveTouch(e) {
+            if (initialX === null || initialY === null){
+            return;
+            }
+            var currentX = e.touches[0].clientX;
+            var currentY = e.touches[0].clientY;
+    
+            var diffX = initialX - currentX;
+            var diffY = initialY - currentY;
+        
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX > 0) {
+                moveSlide(customer_noClone,"right",dots);
+                 adjustWidth(viewArea, customerList, customerItem);
+            } else {
+                moveSlide(customer_noClone,"left",dots);
+                 adjustWidth(viewArea, customerList, customerItem);
+            }  
+            }
+            initialX = null;
+            initialY = null;
+            e.preventDefault();
+        }
+
+
+    //CONST DOM ELEMENT
+        //CUSTOMER SLIDE
+        const customerList = document.querySelector('.page-customers__slide');
+        const customerItem = document.querySelectorAll('.page-customers__slide-item');
+        const dots = document.querySelectorAll('.page-customers__controls li');
+    
+        // sp const
+        const customer_noClone = document.querySelectorAll('.page-customers__slide-item.real');
+    
+        const viewArea = document.querySelector('.page-customers__slide-wrapper'); //list view window
+
+
+
+
+        //controls click
+        dots.forEach(function (dot,index) {
+        
+            dot.addEventListener('click', function () {
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove('active');
+                    customer_noClone[i].classList.remove('center');
+                }
+                dot.classList.add('active');
+                customer_noClone[index].classList.add('center');
+                adjustWidth(viewArea, customerList, customerItem);
+            })
+        });
+    
+        //initial state
+        window.addEventListener('load' , function () {
+            adjustWidth(viewArea, customerList, customerItem);
+        },false);
+        window.addEventListener('resize', function () {
+            adjustWidth(viewArea, customerList, customerItem);
+        });
+    
+
+        customerList.addEventListener("touchstart", startTouch, false);
+        customerList.addEventListener("touchmove", moveTouch, false); 
+        customerList.addEventListener('mousedown', startDrag, false);
+        customerList.addEventListener('mousemove', moveDrag, false);
+        customerList.addEventListener('mouseup', function () {
+            customerList.style.cursor = "unset"; 
+        });
+},false)

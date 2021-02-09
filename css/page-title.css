@@ -5,10 +5,10 @@
 .page-title {
     width: 100%;
     height: 450px;
-    background-size: 100% 450px;
+    background: black;
+    background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    background: black;
 }
 .page-title__overlay {
     position: absolute;

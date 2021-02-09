@@ -157,11 +157,14 @@
     }
     .contact__wrapper {
         width: 100%;
-        max-width: 1200px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .contact__wrapper,
+    .header__wrapper {
+        max-width: 900px;
     }
     /* HEADER */
     .header {
@@ -197,5 +200,11 @@
             padding: 1rem 2rem;
         }
 
+}
+@media (min-width:1400px) {
+    .contact__wrapper,
+    .header__wrapper {
+        max-width: 1200px;
+    }
 }
 
