@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- flaticon -->
     <link rel="stylesheet" href="flaticon/font/flaticon.css">
     <!-- CSS -->
@@ -16,6 +15,7 @@
     <link rel="stylesheet" href="css/page-reservation.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/page-customer.css">
+    <link rel="stylesheet" href="css/page-title.css">
 
 
     
@@ -25,49 +25,58 @@
     <title>About</title>
 </head>
 <body>
-        <!-- CONTACT (style in HEADER) -->
-        <div class="contact">
-            <div class="contact__wrapper">
-                <span class="contact__phone">
-                    <i class="fas fa-phone-alt"></i>
-                    + 1234 4567 89
-                </span>
-                <span class="contact__physical">
-                    <i class="fas fa-clock    "></i>
-                    Open hours: Monday - Sunday /<time> 8:00</time>AM - <time>9:00</time>PM
-                </span>
-                <span class="contact__email">
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                    youremail@email.com
-                </span>
+    <!-- CONTACT (style in HEADER) -->
+    <div class="contact">
+        <div class="contact__wrapper">
+            <span class="contact__phone">
+                <i class="fas fa-phone-alt"></i>
+                + 1234 4567 89
+            </span>
+            <span class="contact__physical">
+                <i class="fas fa-clock    "></i>
+                Open hours: Monday - Sunday /<time> 8:00</time>AM - <time>9:00</time>PM
+            </span>
+            <span class="contact__email">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                youremail@email.com
+            </span>
+        </div>
+    </div>
+    <!-- END CONTACT -->
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header__wrapper">
+            <h1 class="header__logo">Dustaurant</h1>
+            <div class="header__nav-icon">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <span>MENU</span>
+            </div>
+            <div class="header__nav-wrapper">
+                <ul class="header__nav-menu ">
+                    <li><a href="#">Home</a></li>
+                    <li><a class="active" href="#">About</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Stories</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a class="order" href="#">Book a table</a></li>
+                </ul>
             </div>
         </div>
-        <!-- END CONTACT -->
-        <!-- HEADER -->
-        <header class="header">
-            <div class="header__wrapper">
-                <h1 class="header__logo">Dustaurant</h1>
-                <div class="header__nav-icon">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                    <span>MENU</span>
-                </div>
-                <div class="header__nav-wrapper">
-                    <ul class="header__nav-menu ">
-                        <li><a class="active" href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Menu</a></li>
-                        <li><a href="#">Stories</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a class="order" href="#">Book a table</a></li>
-                    </ul>
+    </header>
+    <!-- END HEADER -->
+    <!-- PAGE TITLE -->
+    <section class="page-title" style="background-image: url(media/img/bg_3.jpg);">
+        <div class="page-title__overlay"></div>
+        <div class="page-title__header-wrapper">
+            <div class="page-title__header">
+                <h2 class="header__title">About</h2>
+                <div class="header__link">
+                    <a href="index.html">HOME</a>
+                    <span>ABOUT</span>
                 </div>
             </div>
-        </header>
-        <!-- END HEADER -->
-        <!-- PAGE TITLE -->
-        <section class="page-title">
-
-        </section>
+        </div>
+    </section>
     <!-- ABOUT SECTION -->
     <section class="page-about row">
         <div class="page-about__wrapper">
@@ -114,7 +123,38 @@
         </div>
     </section>
     <!-- END ABOUT SECTION -->
-            <!-- PAGE RESERVATION -->
+    <!-- PAGE SERVICES -->
+    <section class="page-services row">
+        <div class="page-services__title sleep">
+            <h1>Services</h1>
+            <h2>Catering Services</h2>
+        </div>
+        <div class="page-services__wrapper">
+            <div class="page-services__service sleep">
+                <i class="flaticon-cake"></i>
+                <h2 class="service__title">Birthday Party</h2>
+                <p class="service__details">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempore adipisci minima aperiam non, neque repudiandae, numquam quod beatae iusto iste ex quidem nihil nam placeat. Saepe quisquam quas eaque?
+                </p>
+            </div>
+            <div class="page-services__service sleep">
+                <i class="flaticon-meeting"></i>
+                <h2 class="service__title">Business Meetings</h2>
+                <p class="service__details">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempore adipisci minima aperiam non, neque repudiandae, numquam quod beatae iusto iste ex quidem nihil nam placeat. Saepe quisquam quas eaque?
+                </p>
+            </div>
+            <div class="page-services__service sleep">
+                <i class="flaticon-tray"></i>
+                <h2 class="service__title">Wedding Party</h2>
+                <p class="service__details">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis tempore adipisci minima aperiam non, neque repudiandae, numquam quod beatae iusto iste ex quidem nihil nam placeat. Saepe quisquam quas eaque?
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- END PAGE SERVIVES -->
+    <!-- PAGE RESERVATION -->
     <section class="page-reservation" style="background-image: url(media/img/bg_3.jpg);">
         <div class="page-reservation__wrapper row sleep">
             <div class="page-reservation__title sleep">
@@ -373,8 +413,9 @@
     </footer>
     <!-- END FOOTER -->
 
-    <script src="js/main.js"></script>
+    <script src="js/about.js"></script>
     <!-- <script src="js/const.js"></script> -->
     <script src="js/function_block.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>

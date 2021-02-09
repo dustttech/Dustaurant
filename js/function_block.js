@@ -119,6 +119,7 @@
         }
 
 
+
         // PAGE CUSTOMER
         function updateDots(array,center) {
             var dot_act;

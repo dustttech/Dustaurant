@@ -1,0 +1,56 @@
+@import url(main.css);
+
+
+/* PAGE TITLE */
+.page-title {
+    width: 100%;
+    height: 450px;
+    background-size: 100% 450px;
+    background-repeat: no-repeat;
+    position: relative;
+    background: black;
+}
+.page-title__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    opacity: .5;
+    background: #000000;
+}
+.page-title__header-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    align-items: flex-end;
+    justify-content: center;
+}
+.page-title__header {
+    text-align: center;
+    color: white;
+    padding-bottom: 3vh;
+}
+    .header__title {
+        font-size: 3.5rem;
+        font-weight: var(--fw-max-bold);
+        padding-bottom: 3vh;
+    }
+    .header__link > a {
+        color: white;
+        margin-right: 5px;
+    }
+    .header__link > a,
+    .header__link > span {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .header__link > a::after,
+    .header__link > span::after {
+        content: "\f054";
+        font-family: FontAwesome;
+        padding-left: 5px;
+    } 
+    

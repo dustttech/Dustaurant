@@ -83,17 +83,18 @@
     .header__nav-menu > li {}
     .header__nav-menu > li > a {
         display: block;
-        color: var(--cl-text-trans-white);
+        color: white;
         font-size: var(--fs-body);
+        font-weight: var(--fw-extra-normal);
         padding: 1rem 0;
         transition: 0.3s ease-in-out;
     }
     .header__nav-menu .active {
-        color: white;
+        color: var(--cl-btn);
     }
 
     .header__nav-menu > li > a:hover {
-        color: white;
+        color: var(--cl-btn);
     }
     .header__nav-menu > li > .order {
         background-color: var(--cl-btn);
