@@ -13,25 +13,32 @@ document.addEventListener('DOMContentLoaded',function(){
     function adjustBg() {
         var win_w = window.innerWidth;
         var pos = window.pageYOffset;
-        var pos_formBg = form_bg.offsetTop-30;
-        // EFFECT FOR FORM BG
-        if (win_w < 1000) {
-            title_bg.style.backgroundPosition = "50% 0%";
+        if (form_bg) {
+            var pos_formBg = form_bg.offsetTop-30;
+            form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
+        } else if (title_bg) {
+            if (win_w < 1000) {
+                title_bg.style.backgroundPosition = "50% 0%";
+            } else {
+                title_bg.style.backgroundPosition = "50%" + pos +"px";
+            }
         } else {
-            title_bg.style.backgroundPosition = "50%" + pos +"px";
+            scrolling = true;
+            return false;
         }
-
-        form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
-
         scrolling = false;
 
     }
     function moveBg(ele) {
         var pos = window.pageYOffset;
-        var pos_formBg = ele.offsetTop-30;
         // EFFECT FOR FORM BG
         if (ele.style.backgroundPosition) { // if the user've already scroll
-            ele.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";  
+            if (ele == "form_bg") {
+                var pos_formBg = ele.offsetTop-30;
+                ele.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";  
+            } else if (ele == "title_bg") {
+                ele.style.backgroundPosition = "50%" + pos +"px";  
+            }
         } else { // when first load the page 
             ele.style.backgroundPosition = "50% 0%";
         }
@@ -40,8 +47,12 @@ document.addEventListener('DOMContentLoaded',function(){
     // execution
     let scrolling = false;
     window.addEventListener('load' , function () {
-        moveBg(form_bg);
-        moveBg(title_bg);
+        if (form_bg) {
+            moveBg(form_bg);
+        } else if (title_bg) {
+            moveBg(title_bg);  
+        }
+        
     },false);
     window.addEventListener('scroll',function () {
         requestAF();

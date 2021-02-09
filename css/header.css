@@ -58,6 +58,9 @@
 .header__logo {
     font-size: var(--fs-logo);
 }
+.header__logo > a {
+    color: white;
+}
 
 .header__nav-icon {
     color: var(--cl-text-trans-white);
