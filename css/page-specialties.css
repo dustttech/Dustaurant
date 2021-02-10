@@ -8,6 +8,33 @@
     font-size: var(--fs-body-big);
     color: var(--cl-text-trans-extra-black);
 }
+    /* SELECT (in menu page)*/
+    .page-specialties__select {
+        width: 100%;
+        padding-bottom: 8vh;
+    }
+    .page-specialties__select > a {
+        display: block;
+        background-color: #f6f1e9;
+        color: black;
+        font-weight: var(--fw-extra-normal);
+        font-size: var(--fs-h5);
+        margin-bottom: 5px;
+        padding: 15px 0;
+        transition: 0.3s ease-in-out;
+    }
+    .page-specialties__select > a.active {
+        background-color: var(--cl-btn);
+        color: white;
+    }
+    .page-specialties__select > a:hover {
+        background-color: var(--cl-btn-hover2);
+        color: white;
+    }
+    .page-specialties__select > a.active:hover {
+        background-color: var(--cl-btn);
+        color: white;
+    }
     /* TITLE */
     .page-specialties .page-specialties__title > h1 {
         font-size: 4.5rem;

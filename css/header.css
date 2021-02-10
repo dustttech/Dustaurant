@@ -106,6 +106,7 @@
         color: white;
     }
     .header__nav-menu > li > .order:hover {
+        color: white;
         background-color: var(--cl-btn-hover);
     }
 
@@ -113,8 +114,10 @@
     /* NAV MENU STYLE WHEN SCROLL */
     .header.scrollstyle {
         background-color: white;
-        color: black;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+    .scrollstyle .header__logo a {
+        color: black;
     }
     .scrollstyle .header__nav-icon {
         color: var(--cl-text-trans-black);

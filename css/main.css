@@ -33,6 +33,7 @@
     --cl-page-content: #666666;
     --cl-btn: #c8a97e;
     --cl-btn-hover: #9c8361;
+    --cl-btn-hover2: #c09d6c;
     --cl-section: #fafafa;
 }
 
@@ -104,7 +105,7 @@ img {
     from {
         opacity: 0;
         visibility: hidden;
-        transform: translateY(100px);
+        transform: translateY(50px);
     }
     to {
         opacity: 1;
