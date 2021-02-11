@@ -133,6 +133,7 @@
     }
     .scrollstyle .header__nav-menu .order {
         color: white;
+        border-radius: 0;
     }
     .scrollstyle .header__nav-menu .order:hover {
         color: white;
@@ -180,6 +181,11 @@
         z-index: 150;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         padding: 1rem 2rem;
+    }
+    .header.scrollstyle {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
     }
     .header.scrolldown {
         top: 0;   /*top = 0 to overlay the top 50px above*/

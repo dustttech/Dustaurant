@@ -62,6 +62,7 @@ a {
 }
 ul {
     list-style-type: none;
+    margin: 0;
 }
 h1 {
     font-family: var(--ff-title);
