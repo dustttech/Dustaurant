@@ -68,6 +68,7 @@
         .dishes__image {
             width: 100%;
             height: 300px;
+            min-height: 300px;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -142,6 +143,8 @@
     }
         .dishes__image {
             width: 50%;
+            height: auto;
+            align-self: stretch;
         }  
         .dishes__details {
             width: 50%;
@@ -203,6 +206,6 @@
 }
 @media (min-width:1200px) {
     .details__name-price {
-        white-space: normal;
+        /* white-space: normal; */
     }
 }   

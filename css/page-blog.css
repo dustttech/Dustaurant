@@ -27,7 +27,6 @@
         border: 1px solid rgba(0, 0, 0, 0.1);
         background-color: white;
         margin-bottom: 3vh;
-        cursor: pointer;
     }
     /* IMAGE */
         .blog-item__image {
@@ -80,7 +79,52 @@
                 border-bottom: 1px solid var(--cl-text-trans-light-black);
             }
 
-
+            /* INDEX NAV */
+            .page-blog__index-nav {
+                width: 100%;
+                padding: 3vh 0;
+            }
+                .index-nav__wrapper {
+                    width: 100%;
+                    display: flex; 
+                    justify-content: space-between;
+                    align-items: center; 
+                }
+                .index-nav__wrapper a {
+                    display: inline-block;
+                    text-align: center;
+                    color: var(--cl-btn);
+                    font-size: var(--fs-h5);
+                    border: 1px solid var(--cl-btn);
+                    background-color: white;
+                    border-radius: 5px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    transition: 0.3s ease-in-out;
+                }
+                .index-nav__wrapper a:hover {
+                    color: white;
+                    background-color: var(--cl-btn-hover);
+                }
+                .page-blog__control {
+                    margin: 0 auto;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .page-blog__control > li {
+                    padding: 2px;
+                }
+                .index-nav__wrapper > li:hover > a {
+                    color: white;
+                    background-color: var(--cl-btn-hover);
+                }
+                .page-blog__control .active,
+                .page-blog__control .active:hover {
+                    color: white;
+                    background-color: var(--cl-btn);
+                }
 
 @media (min-width:500px) {
     /* BLOG LIST WRAPPER */
