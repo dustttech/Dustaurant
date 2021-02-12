@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded',function(){
     //get element
     const form_bg = document.querySelector('.page-reservation');
     const title_bg = document.querySelector('.page-title');
-
     //function block
     function requestAF() {
         if (!scrolling) {
@@ -49,7 +48,8 @@ document.addEventListener('DOMContentLoaded',function(){
     window.addEventListener('load' , function () {
         if (form_bg) {
             moveBg(form_bg);
-        } else if (title_bg) {
+        }
+        if (title_bg) {
             moveBg(title_bg);  
         }
         

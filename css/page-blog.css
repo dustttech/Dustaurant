@@ -126,6 +126,101 @@
                     background-color: var(--cl-btn);
                 }
 
+
+/* BLOG SINGLE - BLOG SECTION */
+.blog-section {
+    width: 100%;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    font-size: var(--fs-body-big);
+    color: var(--cl-page-content);
+}
+.blog-section__wrapper {
+    margin: 0 auto;
+}
+    /* BLOG CONTENT */
+    .blog-section h3 {
+        color: black;
+        font-weight: var(--fw-extra-normal);
+        padding-bottom: 3vh;
+    }
+    .blog-section p {
+        padding-bottom: 3vh;
+    }
+    .blog-section__content-header {
+        padding-bottom: 5vh;
+    }
+    .content-header__title {
+        font-size: var(--fs-h2);
+        font-weight: var(--fw-light-bold);
+        color: black;
+    }
+    .blog-section__content-header > span {
+        padding-right: 5px;
+        color: var(--cl-text-trans-black);
+    }
+    /* BLOG TAGS LIST */
+    .blog-section__tag {
+        padding-top: 5vh;
+        display: flex;
+    }
+        .blog-section__tag > li {
+            padding-right: 5px;
+        }
+        .blog-section__tag > li > a {
+            display: inline-block;
+            font-size: var(--fs-body-small);
+            color: black;
+            padding: 5px 10px;
+            border: 1px solid var(--cl-text-trans-black);
+            border-radius: 3px;
+            transition: 0.3s ease-in-out;
+        }
+        .blog-section__tag > li:hover > a {
+            background-color: black;
+            color: white;
+        }
+    /* BLOG COMMENTS */
+    .blog-section__comments {
+        padding: 8vh 0;
+    }
+        /* COMMENT COUNT */
+        .comments-count {
+            width: 100%;
+            background-color: #fafafa;
+            padding: 3vh 10px;
+            font-size: var(--fs-h5);
+            color: black;
+            font-weight: var(--fw-light-bold);
+            margin-bottom: 5vh;
+        }
+        
+        /* COMMENT ITEM */
+        .comment-item {
+            width: 100%;
+            float: left;
+            clear: both;
+        }
+            .comment-item__comment-avatar {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 60px;
+                height: 60px;
+                float: left;
+                border-radius: 50%;
+            }
+
+            .comment-item__comment-content {
+                float: right;
+                width: calc(100% - 80px);
+            }
+        /* CLEAR FIX */
+        .comment-list::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 @media (min-width:500px) {
     /* BLOG LIST WRAPPER */
     .page-blog__blog-list {
@@ -146,3 +241,5 @@
             width: 30%;
         }
 }
+
+
