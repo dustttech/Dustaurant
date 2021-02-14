@@ -52,7 +52,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="menu.html">Menu</a></li>
-                    <li><a class="active" href="#">Stories</a></li>
+                    <li><a class="active" href="stories.html">Stories</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a class="order" href="reservation.html">Book a table</a></li>
                 </ul>
@@ -76,8 +76,8 @@
     </section>
     <!-- END PAGE TITLE -->
     <!-- BLOG -->
-    <section class="blog-section row">
-        <div class="blog-section__wrapper">
+    <div class="blog-section">
+        <ul class="blog-section__wrapper">
             <div class="blog-section__content">
                 <div class="blog-section__content-header">
                     <h2 class="content-header__title">Taste this delicious recipe in Viet Nam</h1>
@@ -106,9 +106,9 @@
                 <li><a href="#">WINE</a></li>
                 <li><a href="#">DRINK</a></li>
                 <li><a href="#">DISH</a></li>
-            </div>
-            <div class="blog-section__comments">
-                <div class="comments-count">
+            </ul>
+            <div class="blog-section__comment">
+                <div class="comment-count blog-section__title">
                     <span>08</span> Feedbacks
                 </div>
                 <ul class="comment-list">
@@ -116,18 +116,347 @@
                         <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);">
                         </div>
                         <div class="comment-item__comment-content">
-                            <span class="comment-content__name">Phong Dust</span>
+                            <div class="comment-content__arthor-date">
+                                <span class="comment-content__name">Phong Dust</span>
+                                <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                            </div>
                             <p class="comment-content__content">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
                             </p>
-                            <div class="comment-content__bottom">
+                            <div class="comment-content__reply-like">
                                 <a href="#" class="comment-content__reply">Reply</a>
-                                <span class="comment-content__date"><time datetime="2020-12-30">Sept. 30,2020</time></span>
+                                <span class="comment-content__like">
+                                    <a href="#" class="like-btn">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    </a>
+                                    <span>
+                                        3
+                                    </span>
+                                </span>
+
                             </div>
                         </div>
                     </li>
+                    <li class="comment-item">
+                        <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);"></div>
+                        <div class="comment-item__comment-content">
+                            <div class="comment-content__arthor-date">
+                                <span class="comment-content__name">Phong Dust</span>
+                                <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                            </div>
+                            <p class="comment-content__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
+                            </p>
+                            <div class="comment-content__reply-like">
+                                <a href="#" class="comment-content__reply">Reply</a>
+                                <span class="comment-content__like">
+                                    <a href="#" class="like-btn">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    </a>
+                                    <span>
+                                        3
+                                    </span>
+                                </span>
+
+                            </div>
+                        </div>
+                        <ul class="reply">
+                            <li class="comment-item">
+                                <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);">
+                                </div>
+                                <div class="comment-item__comment-content">
+                                    <div class="comment-content__arthor-date">
+                                        <span class="comment-content__name">Phong Dust</span>
+                                        <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                                    </div>
+                                    <p class="comment-content__content">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
+                                    </p>
+                                    <div class="comment-content__reply-like">
+                                        <a href="#" class="comment-content__reply">Reply</a>
+                                        <span class="comment-content__like">
+                                            <a href="#" class="like-btn">
+                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                            </a>
+                                            <span>
+                                                3
+                                            </span>
+                                        </span>
+        
+                                    </div>
+                                </div>
+                                <ul class="reply">
+                                    <li class="comment-item">
+                                        <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);">
+                                        </div>
+                                        <div class="comment-item__comment-content">
+                                            <div class="comment-content__arthor-date">
+                                                <span class="comment-content__name">Phong Dust</span>
+                                                <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                                            </div>
+                                            <p class="comment-content__content">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
+                                            </p>
+                                            <div class="comment-content__reply-like">
+                                                <a href="#" class="comment-content__reply">Reply</a>
+                                                <span class="comment-content__like">
+                                                    <a href="#" class="like-btn">
+                                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                    </a>
+                                                    <span>
+                                                        3
+                                                    </span>
+                                                </span>
+                
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="comment-item">
+                        <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);">
+                        </div>
+                        <div class="comment-item__comment-content">
+                            <div class="comment-content__arthor-date">
+                                <span class="comment-content__name">Phong Dust</span>
+                                <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                            </div>
+                            <p class="comment-content__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
+                            </p>
+                            <div class="comment-content__reply-like">
+                                <a href="#" class="comment-content__reply">Reply</a>
+                                <span class="comment-content__like">
+                                    <a href="#" class="like-btn">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    </a>
+                                    <span>
+                                        3
+                                    </span>
+                                </span>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="comment-item">
+                        <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);">
+                        </div>
+                        <div class="comment-item__comment-content">
+                            <div class="comment-content__arthor-date">
+                                <span class="comment-content__name">Phong Dust</span>
+                                <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                            </div>
+                            <p class="comment-content__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
+                            </p>
+                            <div class="comment-content__reply-like">
+                                <a href="#" class="comment-content__reply">Reply</a>
+                                <span class="comment-content__like">
+                                    <a href="#" class="like-btn">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    </a>
+                                    <span>
+                                        3
+                                    </span>
+                                </span>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="comment-item">
+                        <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);">
+                        </div>
+                        <div class="comment-item__comment-content">
+                            <div class="comment-content__arthor-date">
+                                <span class="comment-content__name">Phong Dust</span>
+                                <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                            </div>
+                            <p class="comment-content__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
+                            </p>
+                            <div class="comment-content__reply-like">
+                                <a href="#" class="comment-content__reply">Reply</a>
+                                <span class="comment-content__like">
+                                    <a href="#" class="like-btn">
+                                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    </a>
+                                    <span>
+                                        3
+                                    </span>
+                                </span>
+
+                            </div>
+                        </div>
+                        <ul class="reply">
+                            <li class="comment-item">
+                                <div class="comment-item__comment-avatar" style="background-image: url(media/img/resize/customer.jpg);">
+                                </div>
+                                <div class="comment-item__comment-content">
+                                    <div class="comment-content__arthor-date">
+                                        <span class="comment-content__name">Phong Dust</span>
+                                        <span class="comment-content__date"><time datetime="2020-12-30 08:30:45">Sept. 30,2020 AT 8:30AM</time></span>
+                                    </div>
+                                    <p class="comment-content__content">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium dolore consequatur distinctio dicta! Error earum iste quibusdam sed eum sunt eveniet obcaecati reiciendis impedit fugit. Alias, reiciendis! Alias, ea asperiores.
+                                    </p>
+                                    <div class="comment-content__reply-like">
+                                        <a href="#" class="comment-content__reply">Reply</a>
+                                        <span class="comment-content__like">
+                                            <a href="#" class="like-btn">
+                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                            </a>
+                                            <span>
+                                                3
+                                            </span>
+                                        </span>
+        
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+
                 </ul>
+                <div class="comment-add">
+                    <div class="blog-section__title">
+                        Leave a comment
+                    </div>
+                    <form action="" class="comment-add__form">
+                        <div class="comment-add__form-ele">
+                            <label class="input-name" for="name">Name *</label>
+                            <input class="input-field" type="text" name="name">
+                        </div>
+                        <div class="comment-add__form-ele">
+                            <label class="input-name" for="email">Email *</label>
+                            <input class="input-field" type="email" name="email">
+                        </div>
+                        <div class="comment-add__form-ele">
+                            <label class="input-name" for="content">Message</label>
+                            <textarea class="input-field" name="content" id="comment_content" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="comment-add__form-ele">
+                            <input class="submit-comment" type="submit" value="Post Comment">
+                        </div>
+                    </form>
+                </div>
             </div>
+            <div class="blog-section__side-bar">
+                <div class="blog-section__search">
+                    <form class="search-field blog-section__title">
+                        <div class="search-wrapper">
+                            <span class="search-icon">
+                            </span>
+                            <input type="search" class="input-field" name="search" placeholder="Type a keywork and hit enter">
+                        </div>
+                    </form>
+                </div>
+                <div id="category" class="blog-section__categories">
+                    <h2 class="categories-title side-bar__title ">Category</h2>
+                    <ul class="categories">
+                        <li><a href="#">
+                            Breakfast
+                            <span>(6)</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            Lunch
+                            <span>(4)</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            Dinner
+                            <span>(6)</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            Desserts
+                            <span>(2)</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            Drinks
+                            <span>(8)</span>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                            Wine
+                            <span>(2)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="blog-section__popupar-posts">
+                    <h3 class="popupar-posts__title side-bar__title">
+                        Popular Articles
+                    </h3>
+                    <div class="popular-posts__post">
+                        <a href="#" class="post__image" style="background-image: url(media/img/blog4.jpg);"></a>
+                        <div class="post__post-details">
+                            <h4 class="post-details__title"><a href="#">Most popular post in the whole wide world</a></h4>
+                            <div class="post-details__info">
+                                <a href="#" class="info__date">
+                                    <span class="info__icon"></span>
+                                    <time datetime="2020-06-25">June 25,2020</time>
+                                </a>
+                                <a href="#" class="info__arthor">
+                                    <span class="info__icon"></span>
+                                    Dustin Nguyen
+                                </a>
+                                <a href="#" class="info__comment-count">
+                                    <span class="info__icon"></span>
+                                    50
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-posts__post">
+                        <a href="#" class="post__image" style="background-image: url(media/img/blog4.jpg);"></a>
+                        <div class="post__post-details">
+                            <h4 class="post-details__title"><a href="#">Most popular post in the whole wide world</a></h4>
+                            <div class="post-details__info">
+                                <a href="#" class="info__date">
+                                    <span class="info__icon"></span>
+                                    <time datetime="2020-06-25">June 25,2020</time>
+                                </a>
+                                <a href="#" class="info__arthor">
+                                    <span class="info__icon"></span>
+                                    Dustin Nguyen
+                                </a>
+                                <a href="#" class="info__comment-count">
+                                    <span class="info__icon"></span>
+                                    50
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular-posts__post">
+                        <a href="#" class="post__image" style="background-image: url(media/img/blog4.jpg);"></a>
+                        <div class="post__post-details">
+                            <h4 class="post-details__title"><a href="#">Most popular post in the whole wide world</a></h4>
+                            <div class="post-details__info">
+                                <a href="#" class="info__date">
+                                    <span class="info__icon"></span>
+                                    <time datetime="2020-06-25">June 25,2020</time>
+                                </a>
+                                <a href="#" class="info__arthor">
+                                    <span class="info__icon"></span>
+                                    Dustin Nguyen
+                                </a>
+                                <a href="#" class="info__comment-count">
+                                    <span class="info__icon"></span>
+                                    50
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- END BLOG -->
