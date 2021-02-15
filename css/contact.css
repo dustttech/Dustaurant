@@ -1,0 +1,103 @@
+@import url(main.css);
+
+
+.page-contact {
+    width: 100%;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+    margin: 0 auto;
+}
+.contact__title {
+    color: var(--cl-page-title);
+    font-size: var(--fs-h4);
+    padding-bottom: 3vh;
+}
+.contact-informations .contact__title {
+    padding-top: 8vh;
+}
+/* CONTACT FORM */
+.contact-form input, 
+.contact-form textarea {
+    padding: 10px;
+    margin: 10px 0;
+}
+.contact-form > .submit-content {
+    border-radius: 2px;
+    padding: 1rem 3rem;
+}
+
+/* MAP */
+#map {
+    width: 100%;
+    height: 500px;
+    margin: 3vh 0;
+}
+
+/* CONTACT INFORMATIONS */
+.contact-informations {
+    width: 100%;
+    font-size: var(--fs-body-big);
+}
+.contact-informations__infos > li {
+    padding: 10px 0;
+}
+.contact-informations__infos > li > .address,
+.contact-informations__infos > li > a {
+    font-weight: var(--fw-extra-normal);
+    color: var(--cl-btn);
+}
+.contact-informations__infos > li > .address {
+    color: black;
+}
+
+@media (min-width:500px) {
+    .page-contact {
+        max-width: 500px;
+    }
+}
+@media (min-width:600px) {
+    .page-contact {
+        max-width: 600px;
+    }
+}
+@media (min-width:800px) {
+    .page-contact {
+        max-width: 1200px;
+        padding-top: 0;
+    }
+    .page-contact__top,
+    .contact-informations__infos {
+        display: flex;
+    }
+        .contact-form,
+        #map {
+            width: 50%;
+        }
+        .contact-form {
+            order: 2;
+            padding: 8vh 0;
+            padding-left: 4vh;
+        }
+        #map {
+            margin: 0;
+            height: auto;
+        }
+    .contact-informations__infos {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .contact-informations__infos > li {
+        width: 40%;
+    }
+}
+@media (min-width:1000px) {
+    .contact-informations__infos > li {
+        width: 22%;
+    }
+}
+@media (min-width:1400px) {
+    .page-contact {
+        padding: 0;
+        padding-bottom: 8vh;
+    }
+}

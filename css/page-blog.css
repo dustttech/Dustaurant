@@ -306,20 +306,19 @@
             .comment-add__form-ele > textarea {
                 font-family: inherit;
             }
-            .comment-add__form-ele .submit-comment {
-                height: inherit; 
-                font-size: var(--fs-body-big);
-                border-radius: 2px; 
-            }
             .comment-add__form-ele .input-name {
                 margin-bottom: 10px;    
             }
             .comment-add__form-ele > textarea {
                 resize: none;
             }
-            .comment-add__form-ele > .submit-comment {
+            /* SUBMIT BUTTON */
+            .submit-content {
                 display: inline-block;
                 width: auto;
+                height: inherit; 
+                font-size: var(--fs-body-big);
+                border-radius: 2px; 
                 border: none;
                 outline: none;
                 background-color: var(--cl-btn);
@@ -330,7 +329,7 @@
                 border-radius: 5px;
                 transition: 0.3s ease-in-out;
             }
-            .comment-add__form-ele > .submit-comment:hover {
+            .submit-content:hover {
                 background-color: white;
                 color: var(--cl-btn);
             }
