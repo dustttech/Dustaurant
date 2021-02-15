@@ -77,63 +77,65 @@
     </section>
     <!-- PAGE CONTACT -->
     <section class="page-content">
-        <div class="page-content__top">
-            <!-- CONTACT FORM -->
-            <form action="" class="contact-form sleep">
-                <h2 class="contact__title">Contact Us</h2>
-                <input type="text" class="input-field" placeholder="Your Name">
-                <input type="email" class="input-field" placeholder="Your Email">
-                <input type="text" class="input-field" placeholder="Subject">
-                <textarea placeholder="Message" name="content" id="content" cols="30" rows="10" class="input-field"></textarea>
-                <input type="submit" class="submit-content" value="Send Message">
-            </form>
-            <!-- END CONTACT FORM -->
-            <!-- MAP API -->
-            <script>
-                // Initialize and add the map
-                function initMap() {
-                // The location (HCM CITY)
-                const location = { lat: 10.776530, lng: 106.700980 };
-                // The map, centered at location
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 8,
-                    center: location,
-                });
-                // The marker, positioned at location
-                const marker = new google.maps.Marker({
-                    position: location,
-                    map: map,
-                });
-                }
-            </script>
-            <!--MAP  -->
-            <div id="map" class="sleep"></div>
-            <!-- END MAP -->
-        </div>
+        <div class="page-content__wrapper">
+            <div class="page-content__top">
+                <!-- CONTACT FORM -->
+                <form action="" class="contact-form sleep">
+                    <h2 class="contact__title">Contact Us</h2>
+                    <input type="text" class="input-field" placeholder="Your Name">
+                    <input type="email" class="input-field" placeholder="Your Email">
+                    <input type="text" class="input-field" placeholder="Subject">
+                    <textarea placeholder="Message" name="content" id="content" cols="30" rows="10" class="input-field"></textarea>
+                    <input type="submit" class="submit-content" value="Send Message">
+                </form>
+                <!-- END CONTACT FORM -->
+                <!-- MAP API -->
+                <script>
+                    // Initialize and add the map
+                    function initMap() {
+                    // The location (HCM CITY)
+                    const location = { lat: 10.776530, lng: 106.700980 };
+                    // The map, centered at location
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        zoom: 8,
+                        center: location,
+                    });
+                    // The marker, positioned at location
+                    const marker = new google.maps.Marker({
+                        position: location,
+                        map: map,
+                    });
+                    }
+                </script>
+                <!--MAP  -->
+                <div id="map" class="sleep"></div>
+                <!-- END MAP -->
+            </div>
 
-        <!-- CONTACT INFORMATION -->
-        <div class="contact-informations">
-            <h2 class="contact__title sleep">Contact Information</h2>
-            <ul class="contact-informations__infos">
-                <li class="sleep">
-                    <span class="info-name">Address:</span>
-                    <span class="info-value address" >123 85th Street, Random District HCM City</span>
-                </li>
-                <li class="sleep">
-                    <span class="info-name">Phone:</span>
-                    <a href="#" class="info-value"> + 1-978-123-4567</a>
-                </li>
-                <li class="sleep">
-                    <span class="info-name">Email:</span>
-                    <a href="#" class="info-value"> youremail@email.com</a>
-                </li>
-                <li class="sleep">
-                    <span class="info-name">Website:</span>
-                    <a href="#" class="info-value"> yourwebsite.com</a>
-                </li>
-            </ul>
+            <!-- CONTACT INFORMATION -->
+            <div class="contact-informations">
+                <h2 class="contact__title sleep">Contact Information</h2>
+                <ul class="contact-informations__infos">
+                    <li class="sleep">
+                        <span class="info-name">Address:</span>
+                        <span class="info-value address" >123 85th Street, Random District HCM City</span>
+                    </li>
+                    <li class="sleep">
+                        <span class="info-name">Phone:</span>
+                        <a href="#" class="info-value"> + 1-978-123-4567</a>
+                    </li>
+                    <li class="sleep">
+                        <span class="info-name">Email:</span>
+                        <a href="#" class="info-value"> youremail@email.com</a>
+                    </li>
+                    <li class="sleep">
+                        <span class="info-name">Website:</span>
+                        <a href="#" class="info-value"> yourwebsite.com</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END CONTACT INFORMATION -->      
         </div>
-        <!-- END CONTACT INFORMATION -->
     </section>
 
     <!-- END PAGE CONTACT -->

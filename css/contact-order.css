@@ -3,10 +3,11 @@
 
 .page-content {
     width: 100%;
-    padding: 8vh 20px;
+    padding: 3vh 20px 8vh;
+}
+.page-content__wrapper {
     margin: 0 auto;
 }
-
 
 
 /* CONTACT */
@@ -30,12 +31,13 @@
 }
 
 /* BOOK TABLE  */
+.book-table {
+    padding-left: 0;
+    padding-right: 0;
+}
 .book-table .reservation__wrapper {
-    margin: 0 auto!important;
-    padding: 0 40px;
-    padding-bottom: 5vh;
     width: 100%;
-    max-width: unset!important;
+    padding: 0 20px;
 }
 .book-table .reservation__title,
 .book-table .reservation__submit {
@@ -44,9 +46,6 @@
 .book-table .reservation__title h1 {
     margin-top: 0;
     padding-top: 20px;
-}
-.book-table .reservation__form-group {
-    width: 48%;
 }
 
 /* END BOOK TABLE */
@@ -76,22 +75,22 @@
 }
 
 @media (min-width:500px) {
-    .page-content {
+    .page-content__wrapper {
         max-width: 500px;
     }
-    .book-table {
-        max-width: unset!important;
-        width: 100%;
-        padding: 0!important;
-    }
+
 }
 @media (min-width:600px) {
-    .page-content {
+    .page-content__wrapper {
         max-width: 600px;
     }
 }
 @media (min-width:800px) {
     .page-content {
+        padding: 0 3rem;
+        padding-bottom: 8vh;
+    }
+    .page-content__wrapper {
         max-width: 1200px;
         padding-top: 0;
     }
@@ -100,6 +99,8 @@
         display: flex;
         align-items: stretch;
     }
+
+        /* CONTACT STYLE */
         .contact-form,
         #map {
             width: 50%;
@@ -113,9 +114,16 @@
             margin: 0;
             height: auto;
         }
+
+        /* RESERVATION STYLE */
+        .book-table {
+            padding: 0;
+        }
         .book-table .reservation__wrapper {
+            max-width: unset;
             order: 2;
             width: 50%;
+            margin: 0;
         }
         .book-table #map {
             width: 50%;
@@ -132,11 +140,5 @@
 @media (min-width:1000px) {
     .contact-informations__infos > li {
         width: 22%;
-    }
-}
-@media (min-width:1400px) {
-    .page-content {
-        padding: 0;
-        padding-bottom: 8vh;
     }
 }
