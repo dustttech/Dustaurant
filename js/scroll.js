@@ -1,14 +1,18 @@
 document.addEventListener('DOMContentLoaded',function(){//this load before window.load event
-    
+ // get all element need to add animation
+var item = document.querySelectorAll('.sleep'); 
+//hide all element before apply style 
+hideItem();
+
+
+
 // SCROLL ANIMATION
 var scroll = window.requestAnimationFrame || function (callback) {
     setTimeout(callback, 1000/60);
     }
 
-// get all element need to add animation
-var item = document.querySelectorAll('.sleep');
-//hide all element before apply style 
-hideItem();
+
+
 
     // IF ELEMENT'S IN VIEW , ADD ANIMATION
     function loop() {
@@ -18,7 +22,7 @@ hideItem();
             element.style.opacity = null;
             element.classList.remove('sleep');
             element.classList.add('show');
-            }, index*50);
+            }, index*10);
         } 
     });
     scroll(loop);//REPEAT

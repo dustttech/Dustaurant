@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded',function(){
             } else {
                 title_bg.style.backgroundPosition = "50%" + pos +"px";
             }
-        } else {
+        } 
+        if(!title_bg && !form_bg ) {
             scrolling = true;
             return false;
         }

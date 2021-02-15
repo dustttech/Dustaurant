@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded',function(){
             //SLIDE
         //AUTO SLIDE
+        var cur_pos = 0; //position of active slide , changing continuity
+
         function autoSlide(ele) {
-            var cur_pos = 0; 
 
             function runSlide() {
                 var cur_act = ele[cur_pos];
@@ -28,8 +29,7 @@ document.addEventListener('DOMContentLoaded',function(){
         function manualSlide(direction,ele,auto) {
 
             // STOP AUTO SLIDE WHEN USER CLICK
-            var cur_pos = 0, 
-                wait_animation = false;
+            var wait_animation = false;
             function runSlide() {
                 clearInterval(auto);
 

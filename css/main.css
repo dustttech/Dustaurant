@@ -106,6 +106,9 @@ img {
 input {
     appearance: none;
 }
+textarea {
+    resize: none;
+}
 .input-field {
     display: block;
     width: 100%;
