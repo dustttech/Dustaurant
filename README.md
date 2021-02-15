@@ -1,7 +1,7 @@
 # Dustaurant
 clone template from https://preview.colorlib.com/theme/feliciano/index.html
 
-this project was made with pure javascript, html and css . using google maps api for the location and fontawesome,flaticon for icon . It has 7 page in total :
+this project was made with pure javascript, html and css . Using google maps API for the location and Fontawesome, Flaticon for icon decoration. It has 7 page in total :
     Home (index).
     About .
     Menu .
