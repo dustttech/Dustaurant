@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded',function(){
         if (form_bg) {
             var pos_formBg = form_bg.offsetTop-30;
             form_bg.style.backgroundPosition = "50%" + (pos - pos_formBg) +"px";
-        } else if (title_bg) {
+        } 
+        if (title_bg) {
             if (win_w < 1000) {
                 title_bg.style.backgroundPosition = "50% 0%";
             } else {

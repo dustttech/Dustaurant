@@ -6,7 +6,6 @@
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: black;
 }
 /* SLIDE */
 .entry__slide {
@@ -23,6 +22,7 @@
     top: 0;left: 0;
 }
 .entry__slide .slide__item {
+    background-color: black;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

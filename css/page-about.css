@@ -31,10 +31,10 @@
 }
 
 /* TITLE */
-    .about-informations__title > h1{
+    .about__title > h1{
         font-size: var(--fs-page-title);
     }
-    .about-informations__title > h2{
+    .about__title > h2{
         margin-top: -110px;
         padding-bottom: 5vh;
     }
@@ -156,7 +156,7 @@
         }
 }
 @media (min-width:1000px) {
-        .about-informations__title > h2{
+        .about__title > h2{
             margin-top: -125px;
         }
         /* COUNTER  */

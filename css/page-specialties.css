@@ -52,10 +52,10 @@
         }
 
     /* TITLE */
-    .page-specialties .page-specialties__title > h1 {
+    .specialties__title > h1 {
         font-size: 4.5rem;
     }
-    .page-specialties__title > h2 {
+    .specialties__title > h2 {
         margin-top: -60px;
         padding-bottom: 8vh;
     }
@@ -120,10 +120,10 @@
             }
 @media (min-width:450px) {
     /* PAGE MENU TITLE */
-    .page-specialties .page-specialties__title > h1 {
+    .specialties__title > h1 {
         font-size: var(--fs-page-title);
     }
-    .page-specialties__title > h2 {
+    .specialties__title > h2 {
         margin-top: -80px;
     }
         /* DISHES IMAGE */
@@ -204,8 +204,3 @@
         }
        
 }
-@media (min-width:1200px) {
-    .details__name-price {
-        /* white-space: normal; */
-    }
-}   

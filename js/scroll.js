@@ -1,21 +1,19 @@
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded',function(){//this load before window.load event
     
 // SCROLL ANIMATION
 var scroll = window.requestAnimationFrame || function (callback) {
     setTimeout(callback, 1000/60);
     }
 
+// get all element need to add animation
+var item = document.querySelectorAll('.sleep');
+//hide all element before apply style 
+hideItem();
+
     // IF ELEMENT'S IN VIEW , ADD ANIMATION
     function loop() {
-    var item = document.querySelectorAll('.sleep');
     item.forEach(function (element,index) {
-        element.style.opacity = "0";
         if (isElementInViewport(element)) {
-
-
-            // element.style.opacity = null;
-            // element.classList.remove('sleep');
-            // element.classList.add('show');
             setTimeout(() => {
             element.style.opacity = null;
             element.classList.remove('sleep');
@@ -40,6 +38,11 @@ var scroll = window.requestAnimationFrame || function (callback) {
     );
     }
 
+    function hideItem() {
+        item.forEach(element => {
+            element.style.opacity = "0"; 
+        });
+    }
     // RUN FUNCTION WHEN WINDOW IS LOADED
     window.addEventListener('load', function () {
         scroll(loop);
