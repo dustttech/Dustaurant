@@ -467,6 +467,9 @@
     .blog-section__wrapper {
         max-width: 500px;
     }
+    .comment-list .reply {
+        padding-left: 5rem;
+    }
     .comment-add__form,
     .blog-section__title {
         padding-left: 35px;
