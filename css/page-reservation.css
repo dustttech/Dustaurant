@@ -52,6 +52,12 @@
         font-size: var(--fs-body-big);
         border-radius: 2px;
     }
+    input[type="time"],
+    input[type="date"],
+    select {
+        background-color: white;
+        
+    }
     /* HIDDEN DEFAULT STYLE */
     .reservation__form select {
         -webkit-appearance: none;
