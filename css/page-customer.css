@@ -89,7 +89,7 @@
         }
         .slide-item__image::after {
             content: "\f10d";
-            font-family: FontAwesome;
+            font-family: fontawesome;
             display: block;
             color: white;
             font-size: 1.5rem;
