@@ -419,6 +419,7 @@
             line-height: 2;
         }
         .post-details__info > a {
+            display: inline-block;
             color: var(--cl-text-trans-black);
             margin-right: 5px;
         }
