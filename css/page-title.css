@@ -50,7 +50,7 @@
     .header__link > a::after,
     .header__link > span::after {
         content: "\f054";
-        font-family: fontawesome;
+        font-family: 'Font Awesome 5 Free';
         padding-left: 5px;
     } 
     
