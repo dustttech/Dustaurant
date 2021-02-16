@@ -331,15 +331,15 @@
                         <form action="" class="comment-add__form">
                             <div class="comment-add__form-ele">
                                 <label class="input-name" for="name">Name *</label>
-                                <input class="input-field" type="text" name="name">
+                                <input required class="input-field" type="text" name="name">
                             </div>
                             <div class="comment-add__form-ele">
                                 <label class="input-name" for="email">Email *</label>
-                                <input class="input-field" type="email" name="email">
+                                <input required class="input-field" type="email" name="email">
                             </div>
                             <div class="comment-add__form-ele">
                                 <label class="input-name" for="content">Message</label>
-                                <textarea class="input-field" name="content" id="comment_content" cols="30" rows="10"></textarea>
+                                <textarea required class="input-field" name="content" id="comment_content" cols="30" rows="10"></textarea>
                             </div>
                             <div class="comment-add__form-ele">
                                 <input class="submit-content" type="submit" value="Post Comment">
@@ -352,8 +352,7 @@
                 <div class="blog-section__search sleep">
                     <form class="search-field blog-section__title">
                         <div class="search-wrapper">
-                            <span class="search-icon">
-                            </span>
+                            <i class="fa fa-search" aria-hidden="true"></i>
                             <input type="search" class="input-field" name="search" placeholder="Type a keywork and hit enter">
                         </div>
                     </form>

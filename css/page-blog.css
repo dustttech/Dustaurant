@@ -332,14 +332,10 @@
     .search-field {
         padding: 10px;
     }
-    .search-field span {
+    .search-field i {
         position: absolute;
         right: 20px;
         top: 0;
-    }
-    .search-field span::after {
-        content: "\f002";
-        font-family: FontAwesome;
         color: var(--cl-page-content);
         line-height: 52px;
         font-size: var(--fs-body);

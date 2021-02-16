@@ -35,12 +35,12 @@
     /* RESERVATION FORM */
     .reservation__form-group {
         padding-bottom: 3vh;
+        position: relative;
     }
     .reservation__form label {
         display: block;
         padding-bottom: 10px;
         font-weight: var(--fw-extra-bold);
-        position: relative;
     }
     .reservation__form input,
     .reservation__form select {
@@ -61,12 +61,10 @@
         appearance: none;
     }
     /* CUSTOM ARROW FOR SELECT */
-    .reservation__form label[for="person"]::after {
-        content: "\f107";
-        font-family: FontAwesome;
+    .reservation__form-group > i {
         font-size: 15px;
         position: absolute;
-        right: 10px;top: 50px;
+        right: 10px;top: 54px;
     }
     /* LABEL FOR DATE INPUT */
     .reservation__form label[for="time"] span {
