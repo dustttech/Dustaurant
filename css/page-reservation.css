@@ -52,12 +52,33 @@
         font-size: var(--fs-body-big);
         border-radius: 2px;
     }
+    input::placeholder {
+        font-family: var(--ff-normal);
+    }
+
     input[type="time"],
-    input[type="date"],
+    input[type="date"] {
+        color: transparent;
+    }
+    input[type="time"]::before,
+    input[type="date"]::before {
+        content: attr(placeholder);
+        color: #7e7e7e;
+        font-family: var(--ff-normal);
+        position: absolute;
+        left: 10px;
+    }
+    input:focus,
+    input:valid,
+    input:active, 
     select {
         background-color: white;
         color: black;
-        
+    }
+    input:focus::before,
+    input:valid::before,
+    input:active::before {
+        display: none;
     }
     /* HIDDEN DEFAULT STYLE */
     .reservation__form select {
@@ -71,7 +92,7 @@
     .reservation__form-group > i {
         font-size: 15px;
         position: absolute;
-        right: 10px;top: 54px;
+        right: 10px;top: 50px;
     }
     /* LABEL FOR DATE INPUT */
     .reservation__form label[for="time"] span {
