@@ -90,7 +90,7 @@ img {
     color: var(--cl-page-title);
 }
 .show {
-    animation: elementShow 1s ease-in-out forwards;
+    animation: elementShow 0.5s ease-in-out forwards;
 }
 @keyframes elementShow {
     from {
