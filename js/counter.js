@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded',function(){
     
                 var count = count || +counter.innerText;
     
-                const speed = target / 2000;
+                const speed = target / 1000;
      
     
                 if (count < target) {
