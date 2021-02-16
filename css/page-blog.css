@@ -421,20 +421,10 @@
         .post-details__info > a {
             display: inline-block;
             color: var(--cl-text-trans-black);
-            margin-right: 5px;
+            margin-right: 10px;
         }
-        .post-details__info > .info__date > span::after {
-            content: "\f073";
-        }
-        .post-details__info > .info__arthor > span::after {
-            content: "\f007";
-        }
-        .post-details__info > .info__comment-count > span::after {
-            content: "\f086";
-        }
-        .post-details__info .info__icon::after {
-            font-family: FontAwesome;
-            padding-right: 2px;
+        .post-details__info > a > i{
+            padding-right: 5px;
         }
 /* CLEAR FIX FLOAT POPULAR POST */
 .popular-posts__post::after {
