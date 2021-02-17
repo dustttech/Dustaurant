@@ -68,12 +68,13 @@
         position: absolute;
         left: 10px;
     }
+    input,
     input:focus,
     input:valid,
     input:active, 
     select {
-        background-color: white;
-        color: black;
+        background: white!important;
+        color: black!important;
     }
     input:focus::before,
     input:valid::before,
@@ -107,8 +108,8 @@
         border-color: black;
     }
     .reservation__form input[type="submit"] {
-        background-color: var(--cl-btn);
-        color: white;
+        background-color: var(--cl-btn)!important;
+        color: white!important;
         border: none;
         outline: none;
         border: 1px solid var(--cl-btn);
@@ -117,8 +118,8 @@
         transition: 0.3s ease-in-out;
     }
     .reservation__form input[type="submit"]:hover {
-        color: var(--cl-btn);
-        background-color: white;
+        color: var(--cl-btn)!important;
+        background-color: white!important;
         border: 1px solid var(--cl-btn);
     }
 
