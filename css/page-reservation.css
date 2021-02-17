@@ -40,7 +40,8 @@
     .reservation__form label {
         display: block;
         padding-bottom: 10px;
-        font-weight: var(--fw-extra-bold);
+        font-weight: var(--fw-normal);
+        font-size: var(--fs-body-big);
     }
     .reservation__form input,
     .reservation__form select {
@@ -55,8 +56,20 @@
     input::placeholder {
         font-family: var(--ff-normal);
     }
+    input,
+    input:focus,
+    input:valid,
+    input:active,
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active, 
+    select {
+        background: white;
+        color: black;
+    }
 
-    input[type="time"],
+    /* input[type="time"],
     input[type="date"] {
         color: transparent;
     }
@@ -71,16 +84,23 @@
     input,
     input:focus,
     input:valid,
-    input:active, 
+    input:active,
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active, 
     select {
-        background: white!important;
-        color: black!important;
+        background: white;
+        color: black;
     }
-    input:focus::before,
-    input:valid::before,
-    input:active::before {
+    input[type="time"]:focus::before,
+    input[type="time"]:valid::before,
+    input[type="time"]:active::before,
+    input[type="date"]:focus::before,
+    input[type="date"]:valid::before,
+    input[type="date"]:active::before {
         display: none;
-    }
+    } */
     /* HIDDEN DEFAULT STYLE */
     .reservation__form select {
         -webkit-appearance: none;
@@ -93,7 +113,7 @@
     .reservation__form-group > i {
         font-size: 15px;
         position: absolute;
-        right: 10px;top: 50px;
+        right: 10px;top: 54px;
     }
     /* LABEL FOR DATE INPUT */
     .reservation__form label[for="time"] span {
@@ -108,8 +128,8 @@
         border-color: black;
     }
     .reservation__form input[type="submit"] {
-        background-color: var(--cl-btn)!important;
-        color: white!important;
+        background-color: var(--cl-btn);
+        color: white;
         border: none;
         outline: none;
         border: 1px solid var(--cl-btn);
@@ -117,9 +137,12 @@
         cursor: pointer;
         transition: 0.3s ease-in-out;
     }
+    .reservation__form input[type="submit"]:focus {
+        border-color: black;
+    }
     .reservation__form input[type="submit"]:hover {
-        color: var(--cl-btn)!important;
-        background-color: white!important;
+        color: var(--cl-btn);
+        background-color: white;
         border: 1px solid var(--cl-btn);
     }
 
