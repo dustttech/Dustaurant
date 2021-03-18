@@ -141,10 +141,6 @@ textarea {
     background-color: white;
     color: var(--cl-btn);
 }
-/* [class^="page-"] {
-    padding-top: 8vh;
-    padding-bottom: 8vh;
-} */
 @media (min-width:500px) {
     :root {
         --fs-h1: 5rem;
